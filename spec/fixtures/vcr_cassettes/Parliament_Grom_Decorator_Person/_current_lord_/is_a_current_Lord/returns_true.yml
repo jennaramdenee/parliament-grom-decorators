@@ -107,19 +107,12 @@ http_interactions:
         <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/parliamentaryIncumbencyEndDate> "2005-05-05+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2001-06-07+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/seatIncumbencyHasHouseSeat> <https://id.parliament.uk/xljg0rxi> .
-        <https://id.parliament.uk/TImtubyi> <https://id.parliament.uk/schema/memberHasParliamentaryIncumbency> <https://id.parliament.uk/79fcx9m9> .
-        <https://id.parliament.uk/4USVQLKr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ContactPoint> .
-        <https://id.parliament.uk/4USVQLKr> <https://id.parliament.uk/schema/email> "knightja@parliament.uk" .
-        <https://id.parliament.uk/4USVQLKr> <https://id.parliament.uk/schema/phoneNumber> "020 7219 3000" .
-        <https://id.parliament.uk/4USVQLKr> <https://id.parliament.uk/schema/contactPointHasPostalAddress> <https://id.parliament.uk/FIUTXfvr> .
-        <https://id.parliament.uk/FIUTXfvr> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PostalAddress> .
-        <https://id.parliament.uk/FIUTXfvr> <https://id.parliament.uk/schema/addressLine1> "House of Lords" .
-        <https://id.parliament.uk/FIUTXfvr> <https://id.parliament.uk/schema/addressLine2> "London" .
-        <https://id.parliament.uk/FIUTXfvr> <https://id.parliament.uk/schema/postCode> "SW1A 0PW" .
-        <https://id.parliament.uk/79fcx9m9> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/HouseIncumbency> .
-        <https://id.parliament.uk/79fcx9m9> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2010-06-23+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <https://id.parliament.uk/79fcx9m9> <https://id.parliament.uk/schema/houseIncumbencyHasHouse> <https://id.parliament.uk/WkUWUBMx> .
-        <https://id.parliament.uk/79fcx9m9> <https://id.parliament.uk/schema/parliamentaryIncumbencyHasContactPoint> <https://id.parliament.uk/4USVQLKr> .
+        <https://id.parliament.uk/TImtubyi> <https://id.parliament.uk/schema/memberHasParliamentaryIncumbency> <https://id.parliament.uk/GQ2wydCg> .
+        <https://id.parliament.uk/GQ2wydCg> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SeatIncumbency> .
+        <https://id.parliament.uk/GQ2wydCg> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2010-06-23+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/GQ2wydCg> <https://id.parliament.uk/schema/seatIncumbencyHasHouseSeat> <https://id.parliament.uk/cNdGYt0g> .
+        <https://id.parliament.uk/cNdGYt0g> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/HouseSeat> .
+        <https://id.parliament.uk/cNdGYt0g> <https://id.parliament.uk/schema/houseSeatHasHouse> <https://id.parliament.uk/WkUWUBMx> .
         <https://id.parliament.uk/WkUWUBMx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
         <https://id.parliament.uk/WkUWUBMx> <https://id.parliament.uk/schema/houseName> "House of Lords" .
     http_version: 

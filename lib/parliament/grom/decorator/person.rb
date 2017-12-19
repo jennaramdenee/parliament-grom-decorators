@@ -72,13 +72,6 @@ module Parliament
           @seat_incumbencies ||= incumbencies.select { |inc| inc.type == 'https://id.parliament.uk/schema/SeatIncumbency' }
         end
 
-        # Alias memberHasParliamentaryIncumbency with fallback.
-        #
-        # @return [Array, Array] the house incumbencies of the Grom::Node or an empty array.
-        def house_incumbencies
-          @house_incumbencies ||= incumbencies.select { |inc| inc.type == 'https://id.parliament.uk/schema/HouseIncumbency' }
-        end
-
         # Alias seatIncumbencyHasHouseSeat with fallback.
         #
         # @return [Array, Array] the seats of the Grom::Node or an empty array.
@@ -90,7 +83,7 @@ module Parliament
         #
         # @return [Array, Array] the houses of the Grom::Node or an empty array.
         def houses
-          @houses ||= [seats.map(&:house), house_incumbencies.map(&:house)].flatten.uniq.compact
+          @houses ||= [seats.map(&:house), seat_incumbencies.map(&:house)].flatten.uniq.compact
         end
 
         # Alias houseSeatHasConstituencyGroup with fallback.
@@ -98,6 +91,13 @@ module Parliament
         # @return [Array, Array] the constituencies of the Grom::Node or an empty array.
         def constituencies
           @constituencies ||= seats.map(&:constituency).flatten.uniq.compact
+        end
+
+        # Alias houseSeatHasConstituencyGroup with fallback.
+        #
+        # @return [Array, Array] the constituencies of the Grom::Node or an empty array.
+        def current_constituency
+          @current_constituency ||= seats.map(&:constituency)&.select(&:current?)
         end
 
         # Alias partyMemberHasPartyMembership with fallback.
@@ -162,18 +162,32 @@ module Parliament
           @statuses = statuses
         end
 
-        # Check whether #statuses includes 'Current MP'.
+        # Check whether they have a current seat on the House of Commons.
         #
-        # @return [Boolean] a boolean depending on whether or not the result of #statuses includes 'Current MP'.
+        # @return [Boolean] a boolean depending on whether or not they have a current seat incumbency in the House of Commons.
         def current_mp?
-          statuses[:house_membership_status].include?('Current MP')
+          current_member_by_house?('House of Commons')
         end
 
-        # Check whether #statuses includes 'Member of the House of Lords'.
+        # Check whether they are a former member of the House of Commons.
         #
-        # @return [Boolean] a boolean depending on whether or not the result of #statuses includes 'Member of the House of Lords'.
+        # @return [Boolean] a boolean depending on whether or not they have a current seat incumbency in the House of Commons.
+        def former_mp?
+          former_member_by_house?('House of Commons')
+        end
+
+        # Check whether they have a current seat on the House of Lords.
+        #
+        # @return [Boolean] a boolean depending on whether or not they have a current seat incumbency in the House of Lords.
         def current_lord?
-          statuses[:house_membership_status].include?('Member of the House of Lords')
+          current_member_by_house?('House of Lords')
+        end
+
+        # Check whether they are a former member of the House of Lords.
+        #
+        # @return [Boolean] a boolean depending on whether or not they have a current seat incumbency in the House of Lords.
+        def former_lord?
+          former_member_by_house?('House of Lords')
         end
 
         # Alias D79B0BAC513C4A9A87C9D5AFF1FC632F with fallback.
@@ -239,21 +253,30 @@ module Parliament
 
         private
 
-        def house_membership_status
-          no_current_seat_incumbency = seat_incumbencies.select(&:current?).empty?
-          no_current_house_incumbency = house_incumbencies.select(&:current?).empty?
-          former_lord = (!house_incumbencies.empty? && no_current_house_incumbency)
-          former_mp = (!seat_incumbencies.empty? && no_current_seat_incumbency)
-
-          build_house_membership_status(no_current_seat_incumbency, no_current_house_incumbency, former_lord, former_mp)
+        def current_member_by_house?(house_name)
+          seat_incumbencies.select{ |incumbency| incumbency.house.name == house_name && incumbency.end_date.nil? }.any?
         end
 
-        def build_house_membership_status(no_current_seat_incumbency, no_current_house_incumbency, former_lord, former_mp)
-          statuses = []
-          statuses << I18n.t('person.current.mp') unless no_current_seat_incumbency
-          statuses << I18n.t('person.current.member_of_the_house_of_lords') unless no_current_house_incumbency
-          statuses << I18n.t('person.former.member_of_the_house_of_lords') if former_lord
-          statuses << I18n.t('person.former.mp') if former_mp
+        def former_member_by_house?(house_name)
+          seat_incumbencies.select{ |incumbency| incumbency.house.name == house_name && incumbency.end_date }.any?
+        end
+
+        def house_membership_status
+          no_current_seat_incumbency = seat_incumbencies.select(&:current?).empty?
+          former_lord = former_lord?
+          former_mp = (seat_incumbencies.any? && no_current_seat_incumbency)
+
+          build_house_membership_status(no_current_seat_incumbency, former_lord, former_mp)
+        end
+
+        def build_house_membership_status(no_current_seat_incumbency, former_lord, former_mp)
+          statuses     = []
+          current_mp   = current_mp?
+          current_lord = current_lord?
+          statuses << I18n.t('person.current.mp') if current_mp
+          statuses << I18n.t('person.current.member_of_the_house_of_lords') if current_lord
+          statuses << I18n.t('person.former.member_of_the_house_of_lords') if former_lord? && !current_lord
+          statuses << I18n.t('person.former.mp') if former_mp? && !current_mp
 
           convert_house_membership_status(statuses)
         end
@@ -261,7 +284,7 @@ module Parliament
         def general_membership_status
           statuses = []
           statuses << I18n.t('person.current.member') unless incumbencies.select(&:current?).empty?
-          statuses << I18n.t('person.former.member') if !incumbencies.empty? && incumbencies.select(&:current?).empty?
+          statuses << I18n.t('person.former.member') if incumbencies.any? && incumbencies.select(&:current?).empty?
           statuses
         end
 

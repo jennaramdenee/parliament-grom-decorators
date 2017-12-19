@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/people/99ceb32e-2e16-42a0-904d-c6a7e3a9f217
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - application/n-triples; charset=utf-8
+      Etag:
+      - W/"80b3e271f51d04e0054441af16c749ae"
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7a6c7bce-a3c0-45be-a2f1-e5b9cce1d1f4
+      X-Runtime:
+      - '0.063580'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |
+        <https://id.parliament.uk/99ceb32e-2e16-42a0-904d-c6a7e3a9f217> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Person> .
+        <https://id.parliament.uk/99ceb32e-2e16-42a0-904d-c6a7e3a9f217> <https://id.parliament.uk/schema/personGivenName> "Person - givenName" .
+        <https://id.parliament.uk/99ceb32e-2e16-42a0-904d-c6a7e3a9f217> <https://id.parliament.uk/schema/personFamilyName> "Person - familyname" .
+        <https://id.parliament.uk/99ceb32e-2e16-42a0-904d-c6a7e3a9f217> <https://id.parliament.uk/schema/partyMemberHasPartyMembership> <https://id.parliament.uk/b8455c4d-fb51-4878-9974-b52789f97fa0> .
+
+        <https://id.parliament.uk/99ceb32e-2e16-42a0-904d-c6a7e3a9f217> <https://id.parliament.uk/schema/memberHasParliamentaryIncumbency> <https://id.parliament.uk/aNCwLNLX> .
+        <https://id.parliament.uk/aNCwLNLX> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SeatIncumbency> .
+        <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2001-06-07+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/parliamentaryIncumbencyEndDate> "2010-06-07+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/aNCwLNLX> <https://id.parliament.uk/schema/seatIncumbencyHasHouseSeat> <https://id.parliament.uk/xljg0rxi> .
+        <https://id.parliament.uk/xljg0rxi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/HouseSeat> .
+        <https://id.parliament.uk/xljg0rxi> <https://id.parliament.uk/schema/houseSeatHasConstituencyGroup> <https://id.parliament.uk/F78mSoud> .
+        <https://id.parliament.uk/xljg0rxi> <https://id.parliament.uk/schema/houseSeatHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/1AFu55Hs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
+        <https://id.parliament.uk/1AFu55Hs> <https://id.parliament.uk/schema/houseName> "House of Lords" .
+
+        <https://id.parliament.uk/a5581366-1203-44f5-8b54-6bd7662c1897> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Party> .
+        <https://id.parliament.uk/a5581366-1203-44f5-8b54-6bd7662c1897> <https://id.parliament.uk/schema/partyName> "Crossbench" .
+        <https://id.parliament.uk/b8455c4d-fb51-4878-9974-b52789f97fa0> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PartyMembership> .
+        <https://id.parliament.uk/b8455c4d-fb51-4878-9974-b52789f97fa0> <https://id.parliament.uk/schema/partyMembershipStartDate> "1965-07-07"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/b8455c4d-fb51-4878-9974-b52789f97fa0> <https://id.parliament.uk/schema/partyMembershipEndDate> "1997-12-21"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/b8455c4d-fb51-4878-9974-b52789f97fa0> <https://id.parliament.uk/schema/partyMembershipHasParty> <https://id.parliament.uk/a5581366-1203-44f5-8b54-6bd7662c1897> .
+    http_version: 
+  recorded_at: Wed, 19 Apr 2017 10:45:34 GMT
+recorded_with: VCR 3.0.3

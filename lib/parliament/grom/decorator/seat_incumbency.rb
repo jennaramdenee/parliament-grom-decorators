@@ -66,6 +66,14 @@ module Parliament
         def member
           respond_to?(:parliamentaryIncumbencyHasMember) ? parliamentaryIncumbencyHasMember.first : nil
         end
+
+        def house_of_lords?
+          house.name == 'House of Lords'
+        end
+
+        def house_of_commons?
+          house.name == 'House of Commons'
+        end
       end
     end
   end
