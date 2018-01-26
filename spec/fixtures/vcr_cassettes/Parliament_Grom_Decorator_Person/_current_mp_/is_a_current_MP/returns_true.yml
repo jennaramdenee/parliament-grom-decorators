@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/people/YHylN7q7
+    uri: http://localhost:3030/api/v1/person_by_id
     body:
       encoding: US-ASCII
       string: ''
@@ -144,6 +144,6 @@ http_interactions:
         <https://id.parliament.uk/OYePD1O3> <https://id.parliament.uk/schema/parliamentaryIncumbencyEndDate> "2017-05-03+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/OYePD1O3> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2015-05-07+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/OYePD1O3> <https://id.parliament.uk/schema/seatIncumbencyHasHouseSeat> <https://id.parliament.uk/faQ3oYIN> .
-    http_version: 
+    http_version:
   recorded_at: Tue, 24 Oct 2017 10:49:15 GMT
 recorded_with: VCR 3.0.3

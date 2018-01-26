@@ -93,13 +93,6 @@ module Parliament
           @constituencies ||= seats.map(&:constituency).flatten.uniq.compact
         end
 
-        # Alias houseSeatHasConstituencyGroup with fallback.
-        #
-        # @return [Array, Array] the constituencies of the Grom::Node or an empty array.
-        def current_constituency
-          @current_constituency ||= seats.map(&:constituency)&.select(&:current?)
-        end
-
         # Alias partyMemberHasPartyMembership with fallback.
         #
         # @return [Array, Array] the party memberships of the Grom::Node or an empty array.

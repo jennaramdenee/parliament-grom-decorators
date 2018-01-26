@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/person_by_id?person_id=7c511a2b-9ce2-4001-8ee5-71ae734c52d6
+    uri: http://localhost:3030/api/v1/person_by_id
     body:
       encoding: US-ASCII
       string: ''
@@ -48,8 +48,6 @@ http_interactions:
         <https://id.parliament.uk/67841c2c-89f7-4c8f-abd3-6c0671336256> <https://id.parliament.uk/schema/parliamentaryIncumbencyStartDate> "2015-10-27"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/67841c2c-89f7-4c8f-abd3-6c0671336256> <https://id.parliament.uk/schema/houseIncumbencyHasHouse> <https://id.parliament.uk/f1a325bf-f550-48a5-ad40-e30cb7b7bdf4> .
         <https://id.parliament.uk/67841c2c-89f7-4c8f-abd3-6c0671336256> <https://id.parliament.uk/schema/parliamentaryIncumbencyHasContactPoint> <https://id.parliament.uk/1ad9f405-2cef-4e76-ae49-af60a8d9e821> .
-        <https://id.parliament.uk/f4e62fb8-2cf4-41b2-b7a3-7e621522a30d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Party> .
-        <https://id.parliament.uk/f4e62fb8-2cf4-41b2-b7a3-7e621522a30d> <https://id.parliament.uk/schema/partyName> "Labour" .
         <https://id.parliament.uk/3c7fc2f6-bdc3-456c-9e47-d51851c00ffd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PartyMembership> .
         <https://id.parliament.uk/3c7fc2f6-bdc3-456c-9e47-d51851c00ffd> <https://id.parliament.uk/schema/partyMembershipStartDate> "1992-04-09"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/3c7fc2f6-bdc3-456c-9e47-d51851c00ffd> <https://id.parliament.uk/schema/partyMembershipEndDate> "2015-03-30"^^<http://www.w3.org/2001/XMLSchema#date> .

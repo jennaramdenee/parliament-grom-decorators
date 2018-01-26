@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3030/people/7c511a2b-9ce2-4001-8ee5-71ae734c52d6
+    uri: http://localhost:3030/api/v1/person_by_id
     body:
       encoding: US-ASCII
       string: ''
@@ -103,6 +103,6 @@ http_interactions:
         <https://id.parliament.uk/474c746f-4100-499f-ac00-3a772207fbef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/HouseSeat> .
         <https://id.parliament.uk/474c746f-4100-499f-ac00-3a772207fbef> <https://id.parliament.uk/schema/houseSeatHasConstituencyGroup> <https://id.parliament.uk/92d05a2e-0518-4dda-8539-349f510d25d1> .
         <https://id.parliament.uk/474c746f-4100-499f-ac00-3a772207fbef> <https://id.parliament.uk/schema/houseSeatHasHouse> <https://id.parliament.uk/4b77dd58-f6ba-4121-b521-c8ad70465f52> .
-    http_version: 
+    http_version:
   recorded_at: Wed, 19 Apr 2017 09:28:26 GMT
 recorded_with: VCR 3.0.3
