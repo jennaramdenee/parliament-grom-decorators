@@ -27,4 +27,18 @@ describe Parliament::Grom::Decorator::Collection, vcr: true do
       end
     end
   end
+
+  describe '#collection_description' do
+    context 'Grom::Node has all the required objects' do
+      it 'returns the title of the article the Grom::Node object' do
+        expect(@collection.collection_description).to eq('You can ask a Minister an oral question in person or a written question. Questions are submitted via the Table Office.')
+      end
+    end
+
+    context 'Grom::Node does not have a title' do
+      it 'returns an empty string' do
+        expect(@collection.collection_description).to eq('')
+      end
+    end
+  end
 end

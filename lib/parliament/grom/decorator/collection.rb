@@ -11,6 +11,13 @@ module Parliament
         def collection_name
           respond_to?(:name) ? name : ''
         end
+
+        # Alias description with fallback.
+        #
+        # @return [String, String] the title of the Grom::Node or an empty string.
+        def collection_description
+          respond_to?(:description) ? description : ''
+        end
       end
     end
   end
