@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/api/v1/collection_by_id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Thu, 22 Feb 2018 13:25:36 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '3990'
+    body:
+      encoding: UTF-8
+      string: |
+        <https://id.parliament.uk/collec11> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/content/Collection> .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/name> "Questions" .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/description> "You can ask a Minister an oral question in person or a written question. Questions are submitted via the Table Office." .
+        <https://id.parliament.uk/article1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/WebArticle> .
+        <https://id.parliament.uk/article1> <http://example.com/content/schema/title> "Deadlines for questions" .
+        <https://id.parliament.uk/article1> <http://example.com/content/schema/summary> "Find out when you an submit a question  " .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/collectionHasSubcollection> <https://id.parliament.uk/collec22> .
+        <https://id.parliament.uk/collec22> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Collection> .
+        <https://id.parliament.uk/collec22> <http://example.com/content/schema/name> "Oral questions" .
+        <https://id.parliament.uk/collec22> <http://example.com/content/schema/description> "You can ask a Minister a question in person in the Chamber" .
+        <https://id.parliament.uk/article2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/WebArticle> .
+        <https://id.parliament.uk/article2> <http://example.com/content/schema/title> "Rules for questions" .
+        <https://id.parliament.uk/article2> <http://example.com/content/schema/summary> "Things to remember when submitting questions. " .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/collectionHasSubcollection> <https://id.parliament.uk/collec33> .
+        <https://id.parliament.uk/collec33> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Collection> .
+        <https://id.parliament.uk/collec33> <http://example.com/content/schema/name> "Written questions" .
+        <https://id.parliament.uk/collec33> <http://example.com/content/schema/description> "You can ask a Department a question in writing and will receive an answer by email" .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/collectionHasSubcollection> <https://id.parliament.uk/collec66> .
+        <https://id.parliament.uk/collec66> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Collection> .
+        <https://id.parliament.uk/collec66> <http://example.com/content/schema/name> "PMQs" .
+        <https://id.parliament.uk/collec66> <http://example.com/content/schema/description> "You can ask the Prime Minister a question in person in the Chamber" .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/collectionHasParentCollection> <https://id.parliament.uk/collec44> .
+        <https://id.parliament.uk/collec44> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Collection> .
+        <https://id.parliament.uk/collec44> <http://example.com/content/schema/name> "Guide to Procedure" .
+        <https://id.parliament.uk/collec44> <http://example.com/content/schema/description> "The mother of all Collections" .
+        <https://id.parliament.uk/collec11> <http://example.com/content/schema/collectionHasParentCollection> <https://id.parliament.uk/collec55> .
+        <https://id.parliament.uk/collec55> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Collection> .
+        <https://id.parliament.uk/collec55> <http://example.com/content/schema/name> "Dummy Parent Collection" .
+        <https://id.parliament.uk/collec55> <http://example.com/content/schema/description> "The father of all Collections?" .
+    http_version:
+  recorded_at: Thu, 22 Feb 2018 13:56:01 GMT
+recorded_with: VCR 3.0.3
