@@ -24,11 +24,11 @@ module Parliament
           respond_to?(:body) ? body : ''
         end
 
-        # Alias collection with fallback.
+        # Alias articleHasCollection with fallback.
         #
         # @return [Array, Array] array of collection Grom::Node or an empty array.
         def collections
-          respond_to?(:collection) ? collection : []
+          respond_to?(:articleHasCollection) ? articleHasCollection : []
         end
 
         # Alias articleType with fallback.

@@ -88,11 +88,11 @@ http_interactions:
         <http://example.com/content/publisher> <https://id.parliament.uk/autos9> .\r\n<https://id.parliament.uk/autos9>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/content/Publisher>
         .\r\n<https://id.parliament.uk/autos9> <http://example.com/content/name> \"publisher
-        2\" .\r\n<https://id.parliament.uk/ccdwcKYM> <http://example.com/content/collection>
+        2\" .\r\n<https://id.parliament.uk/ccdwcKYM> <http://example.com/content/articleHasCollection>
         <https://id.parliament.uk/autos10> .\r\n<https://id.parliament.uk/autos10>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/content/Collection>
         .\r\n<https://id.parliament.uk/autos10> <http://example.com/content/name>
         \"collection1\" .\r\n"
-    http_version: 
+    http_version:
   recorded_at: Fri, 15 Dec 2017 13:44:18 GMT
 recorded_with: VCR 3.0.3
