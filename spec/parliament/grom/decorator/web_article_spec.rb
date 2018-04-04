@@ -163,4 +163,18 @@ describe Parliament::Grom::Decorator::WebArticle, vcr: true do
       end
     end
   end
+
+  describe '#collections_paths' do
+    context 'Grom::Node has all the required objects' do
+      it 'returns an array of arrays of Collection Grom::Nodes' do
+        expect(@article.collections_paths.first.first.type).to eq('https://id.parliament.uk/schema/Collection')
+      end
+    end
+
+    context 'Grom::Node does not have any collection paths' do
+      it 'returns an empty array' do
+        expect(@article.collections_paths).to eq([])
+      end
+    end
+  end
 end

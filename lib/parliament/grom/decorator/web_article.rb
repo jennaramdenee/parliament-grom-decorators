@@ -65,6 +65,13 @@ module Parliament
         def related_articles
           respond_to?(:relatedArticle) ? relatedArticle : []
         end
+
+        # Alias articleHasCollectionsPaths with fallback.
+        #
+        # @return [Array, Array] an array of arrays of collection paths up the tree for the Grom::Node or an empty Array.
+        def collections_paths
+          respond_to?(:articlenHasCollectionsPaths) ? articleHasCollectionsPaths : []
+        end
       end
     end
   end
