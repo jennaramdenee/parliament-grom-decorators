@@ -1,41 +1,46 @@
 require 'parliament/grom/decorator/version'
 require 'parliament/grom/decorator/helpers'
+require 'parliament/grom/decorator/answer'
+require 'parliament/grom/decorator/answering_body_allocation'
+require 'parliament/grom/decorator/article_type'
+require 'parliament/grom/decorator/audience'
+require 'parliament/grom/decorator/business_item'
+require 'parliament/grom/decorator/collection'
+require 'parliament/grom/decorator/concept'
 require 'parliament/grom/decorator/constituency_area'
 require 'parliament/grom/decorator/constituency_group'
 require 'parliament/grom/decorator/contact_point'
 require 'parliament/grom/decorator/european_region'
+require 'parliament/grom/decorator/formal_body'
+require 'parliament/grom/decorator/formal_body_chair'
+require 'parliament/grom/decorator/formal_body_membership'
+require 'parliament/grom/decorator/formal_body_type'
 require 'parliament/grom/decorator/gender'
 require 'parliament/grom/decorator/gender_identity'
+require 'parliament/grom/decorator/government_incumbency'
+require 'parliament/grom/decorator/government_position'
+require 'parliament/grom/decorator/gov_register_government_organisation'
+require 'parliament/grom/decorator/group'
 require 'parliament/grom/decorator/house'
 require 'parliament/grom/decorator/house_seat'
+require 'parliament/grom/decorator/incumbency'
+require 'parliament/grom/decorator/member_image'
 require 'parliament/grom/decorator/parliamentary_incumbency'
+require 'parliament/grom/decorator/parliaments'
 require 'parliament/grom/decorator/party'
 require 'parliament/grom/decorator/party_membership'
 require 'parliament/grom/decorator/person'
+require 'parliament/grom/decorator/position'
 require 'parliament/grom/decorator/postal_address'
+require 'parliament/grom/decorator/procedure'
+require 'parliament/grom/decorator/procedure_route'
+require 'parliament/grom/decorator/procedure_step'
+require 'parliament/grom/decorator/question'
 require 'parliament/grom/decorator/seat_incumbency'
-require 'parliament/grom/decorator/parliaments'
-require 'parliament/grom/decorator/member_image'
-require 'parliament/grom/decorator/formal_body_membership'
-require 'parliament/grom/decorator/formal_body'
-require 'parliament/grom/decorator/formal_body_type'
-require 'parliament/grom/decorator/government_incumbency'
-require 'parliament/grom/decorator/government_position'
 require 'parliament/grom/decorator/opposition_incumbency'
 require 'parliament/grom/decorator/opposition_position'
 require 'parliament/grom/decorator/web_article'
-require 'parliament/grom/decorator/audience'
-require 'parliament/grom/decorator/article_type'
-require 'parliament/grom/decorator/collection'
-require 'parliament/grom/decorator/concept'
-require 'parliament/grom/decorator/incumbency'
-require 'parliament/grom/decorator/group'
-require 'parliament/grom/decorator/gov_register_government_organisation'
-require 'parliament/grom/decorator/position'
-require 'parliament/grom/decorator/formal_body_chair'
-require 'parliament/grom/decorator/question'
-require 'parliament/grom/decorator/answer'
-require 'parliament/grom/decorator/answering_body_allocation'
+require 'parliament/grom/decorator/work_package'
 
 # Namespace for classes and modules that handle connections to, and processing of data from the parliamentary API.
 # @since 0.1.0
@@ -79,6 +84,11 @@ module Parliament
         'GovRegisterGovernmentOrganisation' => GovRegisterGovernmentOrganisation,
         'Position'                          => Position,
         'FormalBodyChair'                   => FormalBodyChair,
+        'WorkPackage'                       => WorkPackage,
+        'Procedure'                         => Procedure,
+        'ProcedureStep'                     => ProcedureStep,
+        'ProcedureRoute'                    => ProcedureRoute,
+        'BusinessItem'                      => BusinessItem
         'Question'                          => Question,
         'Answer'                            => Answer,
         'AnsweringBodyAllocation'           => AnsweringBodyAllocation
