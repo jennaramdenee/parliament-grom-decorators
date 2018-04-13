@@ -6,7 +6,7 @@ module Parliament
         # Alias businessItemHasProcedureStep with fallback.
         #
         # @return [Array, Array] an array of ProcedureStep Grom::Nodes of the Grom::Node or an empty array.
-        def procedure_step
+        def procedure_steps
           respond_to?(:businessItemHasProcedureStep) ? businessItemHasProcedureStep : []
         end
       end

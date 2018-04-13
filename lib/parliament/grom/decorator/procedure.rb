@@ -9,6 +9,11 @@ module Parliament
         def name
           respond_to?(:procedureName) ? procedureName : ''
         end
+
+        # @return [Bool] whether a procedure is affirmative made.
+        def affirmative_made?
+          name.include?('Made Affirmative')
+        end
       end
     end
   end

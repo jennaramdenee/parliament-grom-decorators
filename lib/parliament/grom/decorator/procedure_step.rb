@@ -17,6 +17,7 @@ module Parliament
           respond_to?(:procedureStepAllowsProcedureRoute) ? procedureStepAllowsProcedureRoute : []
         end
 
+        # @return [Array, Array] an array of ProcedureStep Grom::Nodes or an empty array.
         def potential_next_steps
           @potential_next_steps ||= potential_next_routes.map(&:step).flatten!
         end
