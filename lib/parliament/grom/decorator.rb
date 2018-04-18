@@ -2,9 +2,11 @@ require 'parliament/grom/decorator/version'
 require 'parliament/grom/decorator/helpers'
 require 'parliament/grom/decorator/answer'
 require 'parliament/grom/decorator/answering_body_allocation'
+require 'parliament/grom/decorator/allowed_procedure_route'
 require 'parliament/grom/decorator/article_type'
 require 'parliament/grom/decorator/audience'
 require 'parliament/grom/decorator/business_item'
+require 'parliament/grom/decorator/caused_procedure_route'
 require 'parliament/grom/decorator/collection'
 require 'parliament/grom/decorator/concept'
 require 'parliament/grom/decorator/constituency_area'
@@ -87,7 +89,8 @@ module Parliament
         'WorkPackage'                       => WorkPackage,
         'Procedure'                         => Procedure,
         'ProcedureStep'                     => ProcedureStep,
-        'ProcedureRoute'                    => ProcedureRoute,
+        'AllowedProcedureRoute'             => AllowedProcedureRoute,
+        'CausedProcedureRoute'              => CausedProcedureRoute,
         'BusinessItem'                      => BusinessItem
         'Question'                          => Question,
         'Answer'                            => Answer,

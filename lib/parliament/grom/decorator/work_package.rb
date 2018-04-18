@@ -38,19 +38,20 @@ module Parliament
           business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Lords') }
         end
 
-        ### EVERYTHING TO DO WITH TRACKING AND STATUS OF A WORK PACKAGE
-
-        # @return [String, String] the status of a Work Package.
-        def status
-          # TODO: Implement
-          # if withdrawn?
-          #   status = 'Withdrawn'
-          # elsif expired? || made?
-          #   status = 'Closed'
-          # else
-          #   status = 'In Progress'
-          # end
+        # A unique list of next steps for each business item
+        #
+        # @return [Array, Array] a unique array of ProcedureStep Grom::Nodes for each business item.
+        def next_steps
+          next_steps = []
+          business_items.each do |business_item|
+            business_item.procedure_steps.each do |procedure_step|
+              next_steps << procedure_step.potential_next_steps
+            end
+          end
+          next_steps.flatten!.uniq
         end
+
+        ### EVERYTHING TO DO WITH TRACKING A WORK Package
 
         # @return [Bool] Whether a work package has been laid in the House of Commons.
         def laid_in_commons?
@@ -62,20 +63,57 @@ module Parliament
           laid_in_lords_business_item.present?
         end
 
+        ### EVERYTHING TO DO STATUS OF A WORK PACKAGE
+
+        # @return [String, String] the status of a Work Package.
+        def status
+          # TODO: Implement
+          if ((procedure.first.made_affirmative? || procedure.first.negative?) && expired?) || (procedure.first.draft_affirmative? && approved?)
+            status = 'Approved'
+          elsif rejected?
+            status = 'Rejected'
+          elsif withdrawn?
+            status = 'Withdrawn'
+          else
+            status = 'In Progress'
+          end
+        end
+
         # @return [Bool] Whether a work package has been withdrawn.
         def withdrawn?
+          # If business items have procedure step withdrawn
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Withdrawal of motion') }
           # TODO: Implement
         end
 
         # @return [Bool] Whether a work package has expired (clock has ended).
         def expired?
+          # If clock has ended
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approval clock ends') }
           # TODO: Implement
         end
 
-        # @return [Bool] Whether a work package has been made (brought into law).
-        def made?
+        def approved?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approved') }
           # TODO: Implement
         end
+
+        def rejected?
+          # Draft SI dead or Already Made SI unmade
+          (procedure.first.draft? && dead?) || (procedure.first.already_made? && unmade?)
+          # TODO: Implement
+        end
+
+        def unmade?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Unmade') }
+          # TODO: Implement
+        end
+
+        def dead?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('SI Dead') }
+          # TODO: Implement
+        end
+
       end
     end
   end

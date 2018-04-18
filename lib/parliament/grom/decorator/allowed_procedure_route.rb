@@ -1,8 +1,8 @@
 module Parliament
   module Grom
     module Decorator
-      # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/ProcedureRoute
-      module ProcedureRoute
+      # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/AllowedProcedureRoute
+      module AllowedProcedureRoute
         # Alias procedureRouteIsToProcedureStep with fallback.
         #
         # @return [Array, Array] a ProcedureStep Grom::Node or nil.
