@@ -24,6 +24,13 @@ module Parliament
           respond_to?(:workPackageHasBusinessItem) ? workPackageHasBusinessItem : []
         end
 
+        # A list of procedural steps that have been actualised
+        #
+        # @return [Grom::Node, nil] an array of ProcedureStep Grom::Nodes or an empty array.
+        def actualised_steps
+          business_items.map(&:procedure_steps).flatten!
+        end
+
         # Determining if there is a Business Item object actualising 'Laying into Commons' procedural step.
         #
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
@@ -36,13 +43,14 @@ module Parliament
         #
         # @return [Array, Array] a unique array of ProcedureStep Grom::Nodes for each business item.
         def next_steps
-          next_steps = []
+          all_next_steps = []
           business_items.each do |business_item|
             business_item.procedure_steps.each do |procedure_step|
-              next_steps << procedure_step.potential_next_steps
+              all_next_steps << procedure_step.potential_next_steps
             end
           end
-          next_steps.flatten!.uniq
+          next_steps = all_next_steps.flatten - actualised_steps
+          next_steps.uniq
         end
 
         ### EVERYTHING TO DO WITH TRACKING A WORK PACKAGE
