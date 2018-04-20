@@ -27,16 +27,10 @@ module Parliament
         # Determining if there is a Business Item object actualising 'Laying into Commons' procedural step.
         #
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
-        def laid_in_commons_business_item
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }
+        def laid_date
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }&.date
         end
 
-        # Determining if there is a Business Item object actualising 'Laying into Lords' procedural step.
-        #
-        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
-        def laid_in_lords_business_item
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Lords') }
-        end
 
         # A unique list of next steps for each business item
         #
@@ -51,16 +45,16 @@ module Parliament
           next_steps.flatten!.uniq
         end
 
-        ### EVERYTHING TO DO WITH TRACKING A WORK Package
+        ### EVERYTHING TO DO WITH TRACKING A WORK PACKAGE
 
         # @return [Bool] Whether a work package has been laid in the House of Commons.
         def laid_in_commons?
-          laid_in_commons_business_item.present?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }.present?
         end
 
         # @return [Bool] Whether a work package has been laid in the House of Lords.
         def laid_in_lords?
-          laid_in_lords_business_item.present?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Lords') }.present?
         end
 
         ### EVERYTHING TO DO STATUS OF A WORK PACKAGE
