@@ -90,4 +90,22 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
       end
     end
   end
+
+  describe '#potential_next_steps' do
+    context 'Grom::Node has a set of potential next steps' do
+      it 'returns an array of the Grom::Nodes' do
+        expect(@procedure_step.potential_next_steps.is_a?(Array)).to eq(true)
+      end
+
+      it 'returns an array of ProcedureStep Grom::Nodes' do
+        expect(@procedure_step.potential_next_steps.first.type).to include('https://id.parliament.uk/schema/ProcedureStep')
+      end
+    end
+
+    context 'Grom::Node does not have causes routes' do
+      it 'returns an empty array' do
+        expect(@procedure_step.potential_next_steps).to eq([])
+      end
+    end
+  end
 end
