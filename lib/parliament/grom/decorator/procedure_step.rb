@@ -53,8 +53,8 @@ module Parliament
         # @return [Array, Array] an array of ProcedureStep Grom::Nodes or an empty array.
         def potential_next_steps
           @potential_next_steps = []
-          @potential_next_steps << allows_routes.map(&:step)
-          @potential_next_steps << causes_routes.map(&:step)
+          @potential_next_steps << allows_routes.map(&:steps)
+          @potential_next_steps << causes_routes.map(&:steps)
           @potential_next_steps.flatten!
         end
       end
