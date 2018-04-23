@@ -54,4 +54,40 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
       end
     end
   end
+
+  describe '#allows_routes' do
+    context 'Grom::Node has a set of allowed routes' do
+      it 'returns an array of the Grom::Nodes' do
+        expect(@procedure_step.allows_routes.is_a?(Array)).to eq(true)
+      end
+
+      it 'returns an array of AllowedProcedureRoute Grom::Nodes' do
+        expect(@procedure_step.allows_routes.first.type).to include('https://id.parliament.uk/schema/AllowedProcedureRoute')
+      end
+    end
+
+    context 'Grom::Node does not have allowed routes' do
+      it 'returns an empty array' do
+        expect(@procedure_step.allows_routes).to eq([])
+      end
+    end
+  end
+
+  describe '#causes_routes' do
+    context 'Grom::Node has a set of causes routes' do
+      it 'returns an array of the Grom::Nodes' do
+        expect(@procedure_step.causes_routes.is_a?(Array)).to eq(true)
+      end
+
+      it 'returns an array of CausedProcedureRoute Grom::Nodes' do
+        expect(@procedure_step.causes_routes.first.type).to include('https://id.parliament.uk/schema/CausedProcedureRoute')
+      end
+    end
+
+    context 'Grom::Node does not have causes routes' do
+      it 'returns an empty array' do
+        expect(@procedure_step.causes_routes).to eq([])
+      end
+    end
+  end
 end

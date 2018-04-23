@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/api/v1/procedure_step_by_id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Mon, 23 Apr 2018 13:04:14 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '3405'
+    body:
+      encoding: UTF-8
+      string: |
+        <https://id.parliament.uk/LayInLor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepName> "Laying into Lords" .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepColloquialName> "Laying of papers" .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route007> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepPrecludesProcedureRoute> <https://id.parliament.uk/Route008> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepPrecludesProcedureRoute> <https://id.parliament.uk/Route009> .
+        <https://id.parliament.uk/WkUWUBMx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
+        <https://id.parliament.uk/WkUWUBMx> <https://id.parliament.uk/schema/houseName> "House of Lords" .
+        <https://id.parliament.uk/Route005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route005> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/JCSICons> .
+        <https://id.parliament.uk/Route006> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route006> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route006> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SLSCCons> .
+        <https://id.parliament.uk/Route007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route007> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SOSusMot> .
+        <https://id.parliament.uk/Route008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PrecludedProcedureRoute> .
+        <https://id.parliament.uk/Route008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route008> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SCSICons> .
+        <https://id.parliament.uk/Route009> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PrecludedProcedureRoute> .
+        <https://id.parliament.uk/Route009> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+    http_version:
+  recorded_at: Mon, 23 Apr 2018 13:04:24 GMT
+recorded_with: VCR 3.0.3
