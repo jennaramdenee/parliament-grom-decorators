@@ -13,7 +13,7 @@ module Parliament
         # Alias workPackageHasProcedure with fallback.
         #
         # @return [Array, Array] an array of Procedure Grom::Node of the Grom::Node or an empty array.
-        def procedure
+        def procedures
           respond_to?(:workPackageHasProcedure) ? workPackageHasProcedure : []
         end
 
@@ -26,18 +26,17 @@ module Parliament
 
         # A list of procedural steps that have been actualised
         #
-        # @return [Grom::Node, nil] an array of ProcedureStep Grom::Nodes or an empty array.
+        # @return [Array, Array] an array of ProcedureStep Grom::Nodes or an empty array.
         def actualised_steps
-          business_items.map(&:procedure_steps).flatten!
+          business_items.map(&:procedure_steps).flatten! || []
         end
 
         # Determining if there is a Business Item object actualising 'Laying into Commons' procedural step.
         #
-        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        # @return [DateTime, nil] a BusinessItem Grom::Node or nil.
         def laid_date
           business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }&.date
         end
-
 
         # A unique list of next steps for each business item
         #
@@ -70,7 +69,7 @@ module Parliament
         # @return [String, String] the status of a Work Package.
         def status
           # TODO: Implement
-          if ((procedure.first.made_affirmative? || procedure.first.negative?) && expired?) || (procedure.first.draft_affirmative? && approved?)
+          if ((procedures.first.made_affirmative? || procedures.first.negative?) && expired?) || (procedures.first.draft_affirmative? && approved?)
             status = 'Approved'
           elsif rejected?
             status = 'Rejected'
@@ -102,7 +101,7 @@ module Parliament
 
         def rejected?
           # Draft SI dead or Already Made SI unmade
-          (procedure.first.draft? && dead?) || (procedure.first.already_made? && unmade?)
+          (procedures.first.draft? && dead?) || (procedures.first.already_made? && unmade?)
           # TODO: Implement
         end
 

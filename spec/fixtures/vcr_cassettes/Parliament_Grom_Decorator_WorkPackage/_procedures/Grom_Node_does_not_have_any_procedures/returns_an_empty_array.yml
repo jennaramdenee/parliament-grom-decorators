@@ -1,0 +1,172 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/api/v1/work_package_by_id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Mon, 23 Apr 2018 12:14:45 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '18270'
+    body:
+      encoding: UTF-8
+      string: |
+        <https://id.parliament.uk/WorkPac1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/WorkPackage> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageName> "An Example of an Affirmative SI Work Package" .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem1> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem2> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem3> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem4> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem5> .
+        <https://id.parliament.uk/WorkPac1> <https://id.parliament.uk/schema/workPackageHasBusinessItem> <https://id.parliament.uk/BusItem6> .
+        <https://id.parliament.uk/AffirmSI> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Procedure> .
+        <https://id.parliament.uk/AffirmSI> <https://id.parliament.uk/schema/procedureName> "Made Affirmative" .
+        <https://id.parliament.uk/1AFu55Hs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
+        <https://id.parliament.uk/1AFu55Hs> <https://id.parliament.uk/schema/houseName> "House of Commons" .
+        <https://id.parliament.uk/WkUWUBMx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
+        <https://id.parliament.uk/WkUWUBMx> <https://id.parliament.uk/schema/houseName> "House of Lords" .
+        <https://id.parliament.uk/BusItem1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Laying> .
+        <https://id.parliament.uk/BusItem1> <https://id.parliament.uk/schema/layingDate> "2018-04-18+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/BusItem1> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/LayInCom> .
+        <https://id.parliament.uk/BusItem2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Laying> .
+        <https://id.parliament.uk/BusItem2> <https://id.parliament.uk/schema/layingDate> "2018-04-18+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/BusItem2> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/LayInLor> .
+        <https://id.parliament.uk/BusItem3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem3> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/JCSICons> .
+        <https://id.parliament.uk/BusItem4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem4> <https://id.parliament.uk/schema/layingDate> "2018-05-01+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/BusItem4> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/SLSCCons> .
+        <https://id.parliament.uk/BusItem5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem5> <https://id.parliament.uk/schema/layingDate> "2018-05-02+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
+        <https://id.parliament.uk/BusItem5> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/EVELCons> .
+        <https://id.parliament.uk/BusItem6> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem> .
+        <https://id.parliament.uk/BusItem6> <https://id.parliament.uk/schema/businessItemHasProcedureStep> <https://id.parliament.uk/SLSCCler> .
+        <https://id.parliament.uk/Route002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route002> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route002> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/JCSICons> .
+        <https://id.parliament.uk/Route003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route003> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/CInForce> .
+        <https://id.parliament.uk/Route004> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route004> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route004> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/ComAppMo> .
+        <https://id.parliament.uk/Route005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route005> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route005> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/JCSICons> .
+        <https://id.parliament.uk/Route006> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route006> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route006> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SLSCCons> .
+        <https://id.parliament.uk/Route007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route007> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route007> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SOSusMot> .
+        <https://id.parliament.uk/Route008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PrecludedProcedureRoute> .
+        <https://id.parliament.uk/Route008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route008> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SCSICons> .
+        <https://id.parliament.uk/Route009> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/PrecludedProcedureRoute> .
+        <https://id.parliament.uk/Route009> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route009> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/LayInLor> .
+        <https://id.parliament.uk/Route010> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route010> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route010> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/SLSCCler> .
+        <https://id.parliament.uk/Route011> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/CausedProcedureRoute> .
+        <https://id.parliament.uk/Route011> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route011> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/JCSICler> .
+        <https://id.parliament.uk/Route012> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route012> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route012> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/EVELCons> .
+        <https://id.parliament.uk/Route013> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route013> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route013> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/ComDbate> .
+        <https://id.parliament.uk/Route014> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/AllowedProcedureRoute> .
+        <https://id.parliament.uk/Route014> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureRoute> .
+        <https://id.parliament.uk/Route014> <https://id.parliament.uk/schema/procedureRouteIsToProcedureStep> <https://id.parliament.uk/LorAppMo> .
+        <https://id.parliament.uk/CInForce> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/CInForce> <https://id.parliament.uk/schema/procedureStepName> "Coming into force after being laid" .
+        <https://id.parliament.uk/CInForce> <https://id.parliament.uk/schema/procedureStepColloquialName> "Coming into force after being laid" .
+        <https://id.parliament.uk/ComAppMo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/ComAppMo> <https://id.parliament.uk/schema/procedureStepName> "Commons approval motion" .
+        <https://id.parliament.uk/ComAppMo> <https://id.parliament.uk/schema/procedureStepColloquialName> "Commons approval motion" .
+        <https://id.parliament.uk/ComAppMo> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/LayInCom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepName> "Laying into Commons" .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepColloquialName> "Laying of papers" .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route001> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route002> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route003> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route004> .
+        <https://id.parliament.uk/LayInCom> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route012> .
+        <https://id.parliament.uk/LayInLor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepName> "Laying into Lords" .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepColloquialName> "Laying of papers" .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepCausesProcedureRoute> <https://id.parliament.uk/Route005> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepCausesProcedureRoute> <https://id.parliament.uk/Route006> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route007> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepPrecludesProcedureRoute> <https://id.parliament.uk/Route008> .
+        <https://id.parliament.uk/LayInLor> <https://id.parliament.uk/schema/procedureStepPrecludesProcedureRoute> <https://id.parliament.uk/Route009> .
+        <https://id.parliament.uk/JCSICons> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/JCSICons> <https://id.parliament.uk/schema/procedureStepName> "JCSI consideration" .
+        <https://id.parliament.uk/JCSICons> <https://id.parliament.uk/schema/procedureStepColloquialName> "JCSI consideration" .
+        <https://id.parliament.uk/JCSICons> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/JCSICons> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/JCSICons> <https://id.parliament.uk/schema/procedureStepCausesProcedureRoute> <https://id.parliament.uk/Route011> .
+        <https://id.parliament.uk/SLSCCons> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/SLSCCons> <https://id.parliament.uk/schema/procedureStepName> "SLSC consideration" .
+        <https://id.parliament.uk/SLSCCons> <https://id.parliament.uk/schema/procedureStepColloquialName> "Consideration by Secondary Legislation Scrutiny Committee" .
+        <https://id.parliament.uk/SLSCCons> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/SLSCCons> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/SLSCCons> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route010> .
+        <https://id.parliament.uk/SOSusMot> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/SOSusMot> <https://id.parliament.uk/schema/procedureStepName> "SO suspension motion" .
+        <https://id.parliament.uk/SOSusMot> <https://id.parliament.uk/schema/procedureStepColloquialName> "SO suspension motion" .
+        <https://id.parliament.uk/SOSusMot> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/SLSCCler> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/SLSCCler> <https://id.parliament.uk/schema/procedureStepName> "SLSC cleared" .
+        <https://id.parliament.uk/SLSCCler> <https://id.parliament.uk/schema/procedureStepColloquialName> "Approval by Secondary Legistation Scrutiny Committee" .
+        <https://id.parliament.uk/SLSCCler> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/SLSCCler> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route014> .
+        <https://id.parliament.uk/JCSICler> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/JCSICler> <https://id.parliament.uk/schema/procedureStepName> "JCSI cleared" .
+        <https://id.parliament.uk/JCSICler> <https://id.parliament.uk/schema/procedureStepColloquialName> "Approval by the Joint Committee on Statutory Instruments" .
+        <https://id.parliament.uk/JCSICler> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/JCSICler> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+        <https://id.parliament.uk/EVELCons> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/EVELCons> <https://id.parliament.uk/schema/procedureStepName> "EVEL consideration" .
+        <https://id.parliament.uk/EVELCons> <https://id.parliament.uk/schema/procedureStepColloquialName> "EVEL consideration" .
+        <https://id.parliament.uk/EVELCons> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/EVELCons> <https://id.parliament.uk/schema/procedureStepAllowsProcedureRoute> <https://id.parliament.uk/Route013> .
+        <https://id.parliament.uk/ComDbate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/ComDbate> <https://id.parliament.uk/schema/procedureStepName> "Commons chamber debate" .
+        <https://id.parliament.uk/ComDbate> <https://id.parliament.uk/schema/procedureStepColloquialName> "Debate in the House of Commons chamber" .
+        <https://id.parliament.uk/ComDbate> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs> .
+        <https://id.parliament.uk/LorAppMo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ProcedureStep> .
+        <https://id.parliament.uk/LorAppMo> <https://id.parliament.uk/schema/procedureStepName> "Lords approval motion tabled" .
+        <https://id.parliament.uk/LorAppMo> <https://id.parliament.uk/schema/procedureStepColloquialName> "Approval motion tabled in the House of Lords" .
+        <https://id.parliament.uk/LorAppMo> <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx> .
+    http_version:
+  recorded_at: Mon, 23 Apr 2018 12:26:08 GMT
+recorded_with: VCR 3.0.3
