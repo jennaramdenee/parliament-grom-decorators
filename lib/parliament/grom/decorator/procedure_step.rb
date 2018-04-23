@@ -13,13 +13,13 @@ module Parliament
         # Alias procedureStepCommonName with fallback.
         #
         # @return [String, String] the name of the Grom::Node or an empty string.
-        def common_name
-          respond_to?(:procedureStepCommonName) ? procedureStepCommonName : ''
+        def colloquial_name
+          respond_to?(:procedureStepColloquialName) ? procedureStepColloquialName : ''
         end
 
         # Alias procedureStepHasHouse with fallback.
         #
-        # @return [String, String] an array of House Grom::Nodes or an empty array.
+        # @return [Array, Array] an array of House Grom::Nodes or an empty array.
         def houses
           # TODO: Implement
           respond_to?(:procedureStepHasHouse) ? procedureStepHasHouse : []
