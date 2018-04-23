@@ -14,7 +14,7 @@ module Parliament
         # Alias layingDate with fallback.
         #
         # @return [Date, nil] a laying date or nil.
-        def date
+        def laying_date
           respond_to?(:layingDate) ? DateTime.parse(layingDate) : nil
         end
       end

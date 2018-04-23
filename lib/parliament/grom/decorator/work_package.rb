@@ -35,7 +35,7 @@ module Parliament
         #
         # @return [DateTime, nil] a BusinessItem Grom::Node or nil.
         def laid_date
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }&.date
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }&.laying_date
         end
 
         # A unique list of next steps for each business item
