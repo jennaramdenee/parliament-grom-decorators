@@ -19,6 +19,18 @@ module Parliament
           respond_to?(:formalBodyHasFormalBodyChair)
         end
 
+        # Alias is_chair with fallback.
+        #
+        # @return [Array, Array] an array of Position Grom::Nodes representing the chair or an empty array.
+        def chairs
+          respond_to?(:formalBodyHasFormalBodyChair) ? formalBodyHasFormalBodyChair : []
+        end
+
+        # @return [Array, Array] array of Person Grom::Node(s) representing the current incumbent(s) of chair position(s).
+        def chair_people
+          chairs.first&.incumbencies&.first&.people || []
+        end
+
         # Alias formalBodyStartDate with fallback.
         #
         # @return [DateTime, nil] the start date of the Grom::Node or nil.
@@ -56,9 +68,31 @@ module Parliament
 
         # Checks if Grom::Node has contact points.
         #
-        # @return [Array, Array] an arry containing the contact_point(s), or an empty array.
+        # @return [Array, Array] an array containing the contact_point(s), or an empty array.
         def contact_points
           @contact_points ||= respond_to?(:formalBodyHasContactPoint) ? Array(formalBodyHasContactPoint) : []
+        end
+
+        # Checks if Grom::Node has a house.
+        #
+        # @return [Array, Array] an array of House Grom::Nodes, or an empty array.
+        def houses
+          respond_to?(:formalBodyHasHouse) ? formalBodyHasHouse : []
+        end
+
+        # Checks if the type of Grom::Node is a select committee.
+        #
+        # @return [Boolean] whether or not the group is a select committee.
+        def select_committee?
+          type.include?('https://id.parliament.uk/schema/SelectCommittee')
+        end
+
+        # Checks what type of committee a Grom::Node represents.
+        # TODO: Build out as the types of possible committee types grows
+        #
+        # @return [String, String] whether or not the group is a select committee.
+        def committee_type
+         select_committee? ? 'select' : ''
         end
       end
     end

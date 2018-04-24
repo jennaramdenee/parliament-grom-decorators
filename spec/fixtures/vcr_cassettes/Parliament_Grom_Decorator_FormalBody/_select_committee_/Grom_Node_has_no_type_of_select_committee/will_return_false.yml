@@ -36,7 +36,6 @@ http_interactions:
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/groupName> "Artificial Intelligence Committee" .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/groupStartDate> "2017-06-27+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyRemit> "We evaluate the economic, ethical and social impacts of advances in artificial intelligence." .
-        <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasLeadHouse> <https://id.parliament.uk/WkUWUBMx> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasFormalBodyMembership> <https://id.parliament.uk/yzspKPKX> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyName> "Artificial Intelligence Committee" .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyStartDate> "2017-06-27+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
@@ -49,7 +48,6 @@ http_interactions:
         <https://id.parliament.uk/yzspKPKX> <https://id.parliament.uk/schema/formalBodyMembershipHasFormalBody> <https://id.parliament.uk/DBFruMTZ> .
         <https://id.parliament.uk/yzspKPKX> <https://id.parliament.uk/schema/formalBodyMembershipHasPerson> <https://id.parliament.uk/5XgerVrp> .
         <https://id.parliament.uk/schema/ParliamentaryCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ParliamentaryCommittee> .
-        <https://id.parliament.uk/schema/SelectCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SelectCommittee> .
         <https://id.parliament.uk/WkUWUBMx> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/House> .
         <https://id.parliament.uk/WkUWUBMx> <https://id.parliament.uk/schema/houseName> "House of Lords" .
         <https://id.parliament.uk/WkUWUBMx> <https://id.parliament.uk/schema/houseHasContactPoint> <https://id.parliament.uk/E86yZWtX> .
@@ -315,7 +313,6 @@ http_interactions:
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/MnisFormalBody> .
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Group> .
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:node19743504 .
-        <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/SelectCommittee> .
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ParliamentaryCommittee> .
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:node19743508 .
         <https://id.parliament.uk/DBFruMTZ> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:node19743512 .

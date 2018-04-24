@@ -303,11 +303,11 @@ module Parliament
         private
 
         def current_member_by_house?(house_name)
-          seat_incumbencies.select { |incumbency| incumbency.house.name == house_name && incumbency.end_date.nil? }.any?
+          incumbencies.select { |incumbency| incumbency.house.name == house_name && incumbency.end_date.nil? }.any?
         end
 
         def former_member_by_house?(house_name)
-          seat_incumbencies.select { |incumbency| incumbency.house.name == house_name && incumbency.end_date }.any?
+          incumbencies.select { |incumbency| incumbency.house.name == house_name && incumbency.end_date }.any?
         end
 
         def house_membership_status

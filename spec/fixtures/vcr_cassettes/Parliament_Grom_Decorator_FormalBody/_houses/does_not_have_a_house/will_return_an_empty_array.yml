@@ -36,11 +36,9 @@ http_interactions:
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/groupName> "Artificial Intelligence Committee" .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/groupStartDate> "2017-06-27+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyRemit> "We evaluate the economic, ethical and social impacts of advances in artificial intelligence." .
-        <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasLeadHouse> <https://id.parliament.uk/WkUWUBMx> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasFormalBodyMembership> <https://id.parliament.uk/yzspKPKX> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyName> "Artificial Intelligence Committee" .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyStartDate> "2017-06-27+00:00"^^<http://www.w3.org/2001/XMLSchema#date> .
-        <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasHouse> <https://id.parliament.uk/WkUWUBMx> .
         <https://id.parliament.uk/DBFruMTZ> <https://id.parliament.uk/schema/formalBodyHasContactPoint> <https://id.parliament.uk/jTfc2lhN> .
         <https://id.parliament.uk/jTfc2lhN> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/ContactPoint> .
         <https://id.parliament.uk/jTfc2lhN> <https://id.parliament.uk/schema/email> "HLAIAdHoc@parliament.uk" .
