@@ -31,6 +31,13 @@ module Parliament
         def end_date
           @end_date ||= respond_to?(:groupEndDate) ? DateTime.parse(groupEndDate) : nil
         end
+
+        # Alias groupEndDate with fallback.
+        #
+        # @return [Boolean] whether the group is also a formal body.
+        def formal_body?
+          self.type.include?('https://id.parliament.uk/schema/FormalBody')
+        end
       end
     end
   end

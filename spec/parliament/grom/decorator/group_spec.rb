@@ -56,4 +56,18 @@ describe Parliament::Grom::Decorator::Group, vcr: true do
       end
     end
   end
+
+  describe '#formal_body?' do
+    context 'Grom::Node also has a type of FormalBody' do
+      it 'returns true' do
+        expect(group_node.formal_body?).to eq(true)
+      end
+    end
+
+    context 'Grom::Node does not have a type of FormalBody' do
+      it 'returns false' do
+        expect(group_node.formal_body?).to eq(false)
+      end
+    end
+  end
 end
