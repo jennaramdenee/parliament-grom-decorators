@@ -88,7 +88,7 @@ module Parliament
         'Procedure'                         => Procedure,
         'ProcedureStep'                     => ProcedureStep,
         'ProcedureRoute'                    => ProcedureRoute,
-        'BusinessItem'                      => BusinessItem
+        'BusinessItem'                      => BusinessItem,
         'Question'                          => Question,
         'Answer'                            => Answer,
         'AnsweringBodyAllocation'           => AnsweringBodyAllocation
