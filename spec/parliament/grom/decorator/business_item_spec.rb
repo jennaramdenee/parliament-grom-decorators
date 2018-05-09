@@ -27,10 +27,38 @@ describe Parliament::Grom::Decorator::BusinessItem, vcr: true do
     end
   end
 
-  describe '#laying_date' do
-    context 'Grom::Node has a laying date' do
+  describe '#date' do
+    context 'Grom::Node has a date' do
       it 'returns a date' do
-        expect(@business_item.laying_date).to eq(DateTime.new(2018, 4, 18, 0, 0, 0))
+        expect(@business_item.date).to eq(DateTime.new(2018, 4, 18, 0, 0, 0))
+      end
+    end
+
+    context 'Grom::Node has no date' do
+      it 'returns nil' do
+        expect(@business_item.date).to eq(nil)
+      end
+    end
+  end
+
+  describe '#web_link' do
+    context 'Grom::Node has a web link' do
+      it 'returns a web link' do
+        expect(@business_item.web_link).to eq('http://www.legislation.gov.uk/ukdsi/2018/9780111169063')
+      end
+    end
+
+    context 'Grom::Node has no web link' do
+      it 'returns an empty string' do
+        expect(@business_item.web_link).to eq('')
+      end
+    end
+  end
+
+  describe '#laying_body' do
+    context 'Grom::Node has a laying body' do
+      it 'returns a Grom::Node representing the laying body' do
+        expect(@business_item.laying_date).to include('https://id.parliament.uk/schema/Group')
       end
     end
 

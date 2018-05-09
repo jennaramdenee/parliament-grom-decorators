@@ -3,13 +3,6 @@ module Parliament
     module Decorator
       # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/WorkPackage
       module WorkPackage
-        # Alias workPackageName with fallback.
-        #
-        # @return [String, String] the name of the Grom::Node or an empty string.
-        def name
-          respond_to?(:workPackageName) ? workPackageName : ''
-        end
-
         # Alias workPackageHasProcedure with fallback.
         #
         # @return [Array, Array] an array of Procedure Grom::Node of the Grom::Node or an empty array.
@@ -31,12 +24,16 @@ module Parliament
           business_items.map(&:procedure_steps).flatten! || []
         end
 
-        # Determining if there is a Business Item object actualising 'Laying into Commons' procedural step.
-        #
-        # @return [DateTime, nil] a BusinessItem Grom::Node or nil.
-        def laid_date
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }&.laying_date
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node representing the laying of a WorkPackage or nil .
+        def laying_body
+          business_items.find { |business_item| business_item.laying_body }
         end
+
+        # @return [Grom::Node, nil] the laying date of a WorkPackage or nil .
+        def laid_date
+          laying_business_item.try(&:date)
+        end
+
 
         # A unique list of next steps for each business item
         #
@@ -52,17 +49,6 @@ module Parliament
           next_steps.uniq
         end
 
-        ### EVERYTHING TO DO WITH TRACKING A WORK PACKAGE
-
-        # @return [Bool] Whether a work package has been laid in the House of Commons.
-        def laid_in_commons?
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Commons') }.present?
-        end
-
-        # @return [Bool] Whether a work package has been laid in the House of Lords.
-        def laid_in_lords?
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Laying into Lords') }.present?
-        end
 
         ### EVERYTHING TO DO STATUS OF A WORK PACKAGE
 

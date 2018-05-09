@@ -41,6 +41,7 @@ require 'parliament/grom/decorator/opposition_incumbency'
 require 'parliament/grom/decorator/opposition_position'
 require 'parliament/grom/decorator/web_article'
 require 'parliament/grom/decorator/work_package'
+require 'parliament/grom/decorator/work_packageable_thing'
 
 # Namespace for classes and modules that handle connections to, and processing of data from the parliamentary API.
 # @since 0.1.0
@@ -85,6 +86,7 @@ module Parliament
         'Position'                          => Position,
         'FormalBodyChair'                   => FormalBodyChair,
         'WorkPackage'                       => WorkPackage,
+        'WorkPackageableThing'              => WorkPackageableThing,
         'Procedure'                         => Procedure,
         'ProcedureStep'                     => ProcedureStep,
         'ProcedureRoute'                    => ProcedureRoute,

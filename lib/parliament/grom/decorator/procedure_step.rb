@@ -10,7 +10,7 @@ module Parliament
           respond_to?(:procedureStepName) ? procedureStepName : ''
         end
 
-        # Alias procedureStepCommonName with fallback.
+        # Alias name with fallback.
         #
         # @return [String, String] the name of the Grom::Node or an empty string.
         def colloquial_name
@@ -25,16 +25,16 @@ module Parliament
           respond_to?(:procedureStepHasHouse) ? procedureStepHasHouse : []
         end
 
-        def house_owner
-          case houses.size
-          when 2
-            house_owner = 'Bicameral'
-          when 1
-            house_owner = houses.first.try(&:name)
-          else
-            house_owner = ''
-          end
-        end
+        # def house_owner
+        #   case houses.size
+        #   when 2
+        #     house_owner = 'Bicameral'
+        #   when 1
+        #     house_owner = houses.first.try(&:name)
+        #   else
+        #     house_owner = ''
+        #   end
+        # end
 
         # Alias procedureStepAllowsProcedureRoute with fallback.
         #

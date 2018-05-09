@@ -9,20 +9,6 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     @work_package = (response.filter('https://id.parliament.uk/schema/WorkPackage')).first
   end
 
-  describe '#name' do
-    context 'Grom::Node has a name' do
-      it 'returns the name of the Grom::Node object' do
-        expect(@work_package.name).to eq('An Example of an Affirmative SI Work Package')
-      end
-    end
-
-    context 'Grom::Node does not have a name' do
-      it 'returns an empty string' do
-        expect(@work_package.name).to eq('')
-      end
-    end
-  end
-
   describe '#procedures' do
     context 'Grom::Node has a set of procedures' do
       it 'returns an array of Grom::Nodes for the Grom::Node object' do
@@ -73,20 +59,6 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     context 'Grom::Node does not have any actualised steps' do
       it 'returns an empty array' do
         expect(@work_package.actualised_steps).to eq([])
-      end
-    end
-  end
-
-  describe '#laid_date' do
-    context 'Grom::Node has a laid date' do
-      it 'returns a laid DateTime object for the Grom::Node object' do
-        expect(@work_package.laid_date).to eq(DateTime.new(2018, 4, 18, 0, 0, 0))
-      end
-    end
-
-    context 'Grom::Node does not have a laid date' do
-      it 'returns an empty array' do
-        expect(@work_package.laid_date).to eq(nil)
       end
     end
   end

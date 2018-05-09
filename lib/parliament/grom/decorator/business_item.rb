@@ -11,11 +11,25 @@ module Parliament
           respond_to?(:businessItemHasProcedureStep) ? businessItemHasProcedureStep : []
         end
 
-        # Alias layingDate with fallback.
+        # Alias businessItemDate with fallback.
         #
         # @return [Date, nil] a laying date or nil.
-        def laying_date
-          respond_to?(:layingDate) ? DateTime.parse(layingDate) : nil
+        def date
+          respond_to?(:businessItemDate) ? DateTime.parse(businessItemDate) : nil
+        end
+
+        # Alias businessItemHasBusinessItemWebLink with fallback.
+        #
+        # @return [String, String] a web link to view business item Grom::Node or an empty string.
+        def web_link
+          respond_to?(:businessItemHasBusinessItemWebLink) ? businessItemHasBusinessItemWebLink : ''
+        end
+
+        # Alias layingHasLayingBody with fallback.
+        #
+        # @return [Grom::Node, nil] a Grom::Node representing the group that did the laying.
+        def laying_body
+          respond_to?(:layingHasLayingBody) ? layingHasLayingBody : nil
         end
       end
     end

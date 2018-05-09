@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3030/api/v1/work_packageable_thing_by_id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      - application/n-triples
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/n-triples
+      Content-Disposition:
+      - inline; filename="index"
+      Last-Modified:
+      - Wed, 09 May 2018 16:11:51 GMT
+      X-Content-Type-Options:
+      - nosniff
+      Content-Length:
+      - '2534'
+    body:
+      encoding: UTF-8
+      string: |
+        <https://id.parliament.uk/QbI1sir4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Resource> .
+        <https://id.parliament.uk/QbI1sir4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/WebLinkedThing> .
+        <https://id.parliament.uk/QbI1sir4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/WorkPackageableThing> .
+        <https://id.parliament.uk/QbI1sir4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/StatutoryInstrument> .
+        <https://id.parliament.uk/QbI1sir4> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/LayableThing> .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/webLinkedThingHasWebLink> <http://www.legislation.gov.uk/ukdsi/2018/9780111169063> .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/workPackageableThingHasWorkPackageableThingWebLink> <http://www.legislation.gov.uk/ukdsi/2018/9780111169063> .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/workPackageableThingHasWorkPackage> <https://id.parliament.uk/bONPJ56c> .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/statutoryInstrumentHasWorkPackage> <https://id.parliament.uk/bONPJ56c> .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/workPackageableThingName> "Electronic Presentment of Instruments (Evidence of Payment and Compensation for Loss) Regulations" .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/workPackageableThingComingIntoForceNote> "in accordance with regulation 1" .
+        <https://id.parliament.uk/QbI1sir4> <https://id.parliament.uk/schema/layableThingHasLaying> <https://id.parliament.uk/hZoxXT3H> .
+        <http://www.legislation.gov.uk/ukdsi/2018/9780111169063> <https://id.parliament.uk/schema/webLinkHasWebLinkedThing> <https://id.parliament.uk/QbI1sir4> .
+        <http://www.legislation.gov.uk/ukdsi/2018/9780111169063> <https://id.parliament.uk/schema/workPackageableThingWebLinkHasWorkPackageableThing> <https://id.parliament.uk/QbI1sir4> .
+        <https://id.parliament.uk/bONPJ56c> <https://id.parliament.uk/schema/workPackageHasWorkPackageableThing> <https://id.parliament.uk/QbI1sir4> .
+        <https://id.parliament.uk/bONPJ56c> <https://id.parliament.uk/schema/workPackageHasStatutoryInstrument> <https://id.parliament.uk/QbI1sir4> .
+        <https://id.parliament.uk/hZoxXT3H> <https://id.parliament.uk/schema/layingHasLayableThing> <https://id.parliament.uk/QbI1sir4> .
+    http_version: 
+  recorded_at: Wed, 09 May 2018 16:13:09 GMT
+recorded_with: VCR 3.0.3
