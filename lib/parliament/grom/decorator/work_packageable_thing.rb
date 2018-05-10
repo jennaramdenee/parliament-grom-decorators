@@ -11,10 +11,11 @@ module Parliament
         end
 
         # Alias workPackageableThingHasWorkPackage with fallback.
+        # NB: Currently, a work packageable thing only has one work package
         #
         # @return [Grom::Node, nil] a WorkPackage Grom::Node or nil.
         def work_package
-          respond_to?(:workPackageableThingHasWorkPackage) ? workPackageableThingHasWorkPackage : nil
+          respond_to?(:workPackageableThingHasWorkPackage) ? workPackageableThingHasWorkPackage.first : nil
         end
 
         # Alias workPackageableThingHasWorkPackage with fallback.

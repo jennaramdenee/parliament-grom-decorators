@@ -4,10 +4,11 @@ module Parliament
       # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/WorkPackage
       module WorkPackage
         # Alias workPackageHasProcedure with fallback.
+        # NB: Currently, work packages only have one procedure
         #
         # @return [Array, Array] an array of Procedure Grom::Node of the Grom::Node or an empty array.
-        def procedures
-          respond_to?(:workPackageHasProcedure) ? workPackageHasProcedure : []
+        def procedure
+          respond_to?(:workPackageHasProcedure) ? workPackageHasProcedure.first : []
         end
 
         # Alias workPackageHasBusinessItem with fallback.
@@ -38,13 +39,19 @@ module Parliament
           next_steps.uniq
         end
 
+        # The business item representing the laying of a work packageable thing
+        #
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def laying_business_item
+          business_items.find { |business_item| business_item.laying_body.present? }
+        end
 
         ### EVERYTHING TO DO STATUS OF A WORK PACKAGE
 
         # @return [String, String] the status of a Work Package.
         def status
           # TODO: Implement
-          if ((procedures.first.made_affirmative? || procedures.first.negative?) && expired?) || (procedures.first.draft_affirmative? && approved?)
+          if ((procedure.made_affirmative? || procedure.negative?) && expired?) || (procedure.draft_affirmative? && approved?)
             status = 'Approved'
           elsif rejected?
             status = 'Rejected'
@@ -76,7 +83,7 @@ module Parliament
 
         def rejected?
           # Draft SI dead or Already Made SI unmade
-          (procedures.first.draft? && dead?) || (procedures.first.already_made? && unmade?)
+          (procedure.draft? && dead?) || (procedure.already_made? && unmade?)
           # TODO: Implement
         end
 
