@@ -26,10 +26,18 @@ module Parliament
         end
 
         # Alias layingHasLayingBody with fallback.
+        # NB. One and only one group has to lay, so it will always be the first laying body
         #
         # @return [Grom::Node, nil] a Grom::Node representing the group that did the laying.
         def laying_body
-          respond_to?(:layingHasLayingBody) ? layingHasLayingBody : nil
+          respond_to?(:layingHasLayingBody) ? layingHasLayingBody.first : nil
+        end
+
+        # A business item can have many procedural steps, each of which belongs to a house or both houses
+        #
+        # @return [Array, Array] an Array of all House Grom::Nodes, or an empty array.
+        def procedure_steps_houses
+          procedure_steps.map(&:houses).flatten.uniq
         end
       end
     end

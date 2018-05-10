@@ -24,17 +24,6 @@ module Parliament
           business_items.map(&:procedure_steps).flatten! || []
         end
 
-        # @return [Grom::Node, nil] a BusinessItem Grom::Node representing the laying of a WorkPackage or nil .
-        def laying_body
-          business_items.find { |business_item| business_item.laying_body }
-        end
-
-        # @return [Grom::Node, nil] the laying date of a WorkPackage or nil .
-        def laid_date
-          laying_business_item.try(&:date)
-        end
-
-
         # A unique list of next steps for each business item
         #
         # @return [Array, Array] a unique array of ProcedureStep Grom::Nodes for each business item.

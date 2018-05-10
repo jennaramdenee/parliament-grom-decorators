@@ -25,17 +25,6 @@ module Parliament
           respond_to?(:procedureStepHasHouse) ? procedureStepHasHouse : []
         end
 
-        # def house_owner
-        #   case houses.size
-        #   when 2
-        #     house_owner = 'Bicameral'
-        #   when 1
-        #     house_owner = houses.first.try(&:name)
-        #   else
-        #     house_owner = ''
-        #   end
-        # end
-
         # Alias procedureStepAllowsProcedureRoute with fallback.
         #
         # @return [Array, Array] an array of AllowedProcedureRoute Grom::Nodes or an empty array.
