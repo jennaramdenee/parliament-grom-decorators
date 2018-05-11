@@ -5,7 +5,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     response = Parliament::Request::UrlRequest.new(
       base_url: 'http://localhost:3030/api/v1',
       builder: Parliament::Builder::NTripleResponseBuilder,
-      decorators: Parliament::Grom::Decorator).work_packageable_thing_by_id.get
+      decorators: Parliament::Grom::Decorator).work_package_by_id.get
     @work_packageble_thing = (response.filter('https://id.parliament.uk/schema/WorkPackageableThing')).first
   end
 
@@ -51,6 +51,34 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     context 'Grom::Node has no web link' do
       it 'returns an empty string' do
         expect(@work_packageble_thing.web_link).to eq('')
+      end
+    end
+  end
+
+  describe '#coming_into_force_date' do
+    context 'Grom::Node has a coming into force date' do
+      it 'returns a date' do
+        expect(@work_packageble_thing.coming_into_force_date).to eq(DateTime.new(2017,05,06))
+      end
+    end
+
+    context 'Grom::Node has no coming into force date' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.coming_into_force_date).to eq(nil)
+      end
+    end
+  end
+
+  describe '#time_limit_for_objection_date' do
+    context 'Grom::Node has a time limit for objection date' do
+      it 'returns a date' do
+        expect(@work_packageble_thing.time_limit_for_objection_date).to eq(DateTime.new(2017,05,06))
+      end
+    end
+
+    context 'Grom::Node has no time limit for objection date' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.time_limit_for_objection_date).to eq(nil)
       end
     end
   end

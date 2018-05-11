@@ -6,9 +6,9 @@ module Parliament
         # Alias workPackageHasProcedure with fallback.
         # NB: Currently, work packages only have one procedure
         #
-        # @return [Array, Array] an array of Procedure Grom::Node of the Grom::Node or an empty array.
+        # @return [Grom::Node, nil] a Procedure Grom::Node of the Grom::Node or nil.
         def procedure
-          respond_to?(:workPackageHasProcedure) ? workPackageHasProcedure.first : []
+          respond_to?(:workPackageHasProcedure) ? workPackageHasProcedure.first : nil
         end
 
         # Alias workPackageHasBusinessItem with fallback.
@@ -16,6 +16,14 @@ module Parliament
         # @return [Array, Array] an array of BusinessItem Grom::Nodes or an empty array.
         def business_items
           respond_to?(:workPackageHasBusinessItem) ? workPackageHasBusinessItem : []
+        end
+
+        # The business item representing the laying of a work packageable thing
+        #
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def laying_business_item
+          business_items.find { |business_item| business_item.laying_body.present? }
+          # respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
         end
 
         # A list of procedural steps that have been actualised
@@ -37,13 +45,6 @@ module Parliament
           end
           next_steps = all_next_steps.flatten - actualised_steps
           next_steps.uniq
-        end
-
-        # The business item representing the laying of a work packageable thing
-        #
-        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
-        def laying_business_item
-          business_items.find { |business_item| business_item.laying_body.present? }
         end
 
         ### EVERYTHING TO DO STATUS OF A WORK PACKAGE

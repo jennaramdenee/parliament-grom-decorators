@@ -39,6 +39,10 @@ module Parliament
         def procedure_steps_houses
           procedure_steps.map(&:houses).flatten.uniq
         end
+
+        def procedure_steps_house_names
+          procedure_steps_houses.map(&:name).join(' and ')
+        end
       end
     end
   end

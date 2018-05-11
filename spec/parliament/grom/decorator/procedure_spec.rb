@@ -5,7 +5,7 @@ describe Parliament::Grom::Decorator::Procedure, vcr: true do
     response = Parliament::Request::UrlRequest.new(
       base_url: 'http://localhost:3030/api/v1',
       builder: Parliament::Builder::NTripleResponseBuilder,
-      decorators: Parliament::Grom::Decorator).procedure_by_id.get
+      decorators: Parliament::Grom::Decorator).work_package_by_id.get
     @procedure = (response.filter('https://id.parliament.uk/schema/Procedure')).first
   end
 

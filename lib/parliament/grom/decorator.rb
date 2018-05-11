@@ -37,6 +37,7 @@ require 'parliament/grom/decorator/procedure_route'
 require 'parliament/grom/decorator/procedure_step'
 require 'parliament/grom/decorator/question'
 require 'parliament/grom/decorator/seat_incumbency'
+require 'parliament/grom/decorator/statutory_instrument'
 require 'parliament/grom/decorator/opposition_incumbency'
 require 'parliament/grom/decorator/opposition_position'
 require 'parliament/grom/decorator/web_article'
@@ -91,6 +92,7 @@ module Parliament
         'ProcedureStep'                     => ProcedureStep,
         'ProcedureRoute'                    => ProcedureRoute,
         'BusinessItem'                      => BusinessItem,
+        'StatutoryInstrument'               => StatutoryInstrument,
         'Question'                          => Question,
         'Answer'                            => Answer,
         'AnsweringBodyAllocation'           => AnsweringBodyAllocation

@@ -9,20 +9,16 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     @work_package = (response.filter('https://id.parliament.uk/schema/WorkPackage')).first
   end
 
-  describe '#procedures' do
-    context 'Grom::Node has a set of procedures' do
-      it 'returns an array of Grom::Nodes for the Grom::Node object' do
-        expect(@work_package.procedures.size).to eq(1)
-      end
-
+  describe '#procedure' do
+    context 'Grom::Node has a procedure' do
       it 'returns an array of procedure Grom::Nodes for the Grom::Node object' do
-        expect(@work_package.procedures.first.type).to eq('https://id.parliament.uk/schema/Procedure')
+        expect(@work_package.procedure.type).to eq('https://id.parliament.uk/schema/Procedure')
       end
     end
 
-    context 'Grom::Node does not have any procedures' do
+    context 'Grom::Node does not have a procedure' do
       it 'returns an empty array' do
-        expect(@work_package.procedures).to eq([])
+        expect(@work_package.procedure).to eq(nil)
       end
     end
   end
@@ -41,6 +37,20 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     context 'Grom::Node does not have any business items' do
       it 'returns an empty array' do
         expect(@work_package.business_items).to eq([])
+      end
+    end
+  end
+
+  describe '#laying_business_item' do
+    context 'Grom::Node has a laying business item' do
+      it 'returns a laying business item Grom::Node' do
+        expect(@work_package.laying_business_item.type).to include('https://id.parliament.uk/schema/Laying')
+      end
+    end
+
+    context 'Grom::Node does not have any business items' do
+      it 'returns an empty array' do
+        expect(@work_package.laying_business_item).to eq(nil)
       end
     end
   end

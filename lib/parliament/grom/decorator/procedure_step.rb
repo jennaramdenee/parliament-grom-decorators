@@ -21,7 +21,6 @@ module Parliament
         #
         # @return [Array, Array] an array of House Grom::Nodes or an empty array.
         def houses
-          # TODO: Implement
           respond_to?(:procedureStepHasHouse) ? procedureStepHasHouse : []
         end
 
