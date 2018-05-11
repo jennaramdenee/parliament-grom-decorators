@@ -38,6 +38,18 @@ module Parliament
         def time_limit_for_objection_date
           respond_to?(:workPackageableThingTimeLimitForObjectionEndDate) ? DateTime.parse(workPackageableThingTimeLimitForObjectionEndDate) : nil
         end
+
+        # Alias workPackageableThingComingIntoForceDate with fallback.
+        #
+        # @return [Boolean] whether or not the work package is a statutory instrument.
+        def statutory_instrument?
+          type.include?('https://id.parliament.uk/schema/StatutoryInstrument')
+        end
+
+        # @return [String] the type of work packageable thing.
+        def work_packageable_thing_type
+          work_packageable_thing_type = 'SI' if statutory_instrument?
+        end
       end
     end
   end

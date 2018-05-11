@@ -22,8 +22,8 @@ module Parliament
         #
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
         def laying_business_item
-          business_items.find { |business_item| business_item.laying_body.present? }
-          # respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
+          # business_items.find { |business_item| business_item.laying_body.present? }
+          respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
         end
 
         # A list of procedural steps that have been actualised
