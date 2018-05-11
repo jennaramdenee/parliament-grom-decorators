@@ -25,6 +25,14 @@ module Parliament
           respond_to?(:workPackageableThingHasWorkPackageableThingWebLink) ? workPackageableThingHasWorkPackageableThingWebLink : ''
         end
 
+        # The business item representing the laying of a work packageable thing
+        #
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def laying_business_item
+          # business_items.find { |business_item| business_item.laying_body.present? }
+          respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
+        end
+
         # Alias workPackageableThingComingIntoForceDate with fallback.
         #
         # @return [DateTime, nil] the date a work package has come into force or nil.

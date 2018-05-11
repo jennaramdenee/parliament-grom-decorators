@@ -18,14 +18,6 @@ module Parliament
           respond_to?(:workPackageHasBusinessItem) ? workPackageHasBusinessItem : []
         end
 
-        # The business item representing the laying of a work packageable thing
-        #
-        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
-        def laying_business_item
-          # business_items.find { |business_item| business_item.laying_body.present? }
-          respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
-        end
-
         # A list of procedural steps that have been actualised
         #
         # @return [Array, Array] an array of ProcedureStep Grom::Nodes or an empty array.

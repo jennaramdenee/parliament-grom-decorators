@@ -41,20 +41,6 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     end
   end
 
-  describe '#laying_business_item' do
-    context 'Grom::Node has a laying business item' do
-      it 'returns a laying business item Grom::Node' do
-        expect(@work_package.laying_business_item.type).to include('https://id.parliament.uk/schema/Laying')
-      end
-    end
-
-    context 'Grom::Node does not have any business items' do
-      it 'returns an empty array' do
-        expect(@work_package.laying_business_item).to eq(nil)
-      end
-    end
-  end
-
   describe '#actualised_steps' do
     context 'Grom::Node has a set of actualised steps' do
       it 'returns an array of Grom::Nodes for the Grom::Node object' do
