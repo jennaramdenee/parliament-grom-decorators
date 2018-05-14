@@ -12,7 +12,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#name' do
     context 'Grom::Node has a name' do
       it 'returns the name of the Grom::Node object' do
-        expect(@work_packageble_thing.name).to eq('An Example of an Affirmative SI Work Package')
+        expect(@work_packageble_thing.name).to eq('Lobsters and Crawfish (Prohibition of Fishing and Landing) (Amendment) (England) Order 2017')
       end
     end
 
@@ -44,7 +44,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#web_link' do
     context 'Grom::Node has a web link' do
       it 'returns a web link' do
-        expect(@work_packageble_thing.web_link).to eq('http://www.legislation.gov.uk/ukdsi/2018/9780111169063')
+        expect(@work_packageble_thing.web_link).to eq('https://www.legislation.gov.uk/uksi/2017/899/made')
       end
     end
 
@@ -58,13 +58,13 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#laying_business_item' do
     context 'Grom::Node has a laying business item' do
       it 'returns a laying business item Grom::Node' do
-        expect(@work_package.laying_business_item.type).to include('https://id.parliament.uk/schema/Laying')
+        expect(@work_packageble_thing.laying_business_item.type).to include('https://id.parliament.uk/schema/Laying')
       end
     end
 
     context 'Grom::Node does not have any business items' do
       it 'returns an empty array' do
-        expect(@work_package.laying_business_item).to eq(nil)
+        expect(@work_packageble_thing.laying_business_item).to eq(nil)
       end
     end
   end
@@ -72,7 +72,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#coming_into_force_date' do
     context 'Grom::Node has a coming into force date' do
       it 'returns a date' do
-        expect(@work_packageble_thing.coming_into_force_date).to eq(DateTime.new(2017,05,06))
+        expect(@work_packageble_thing.coming_into_force_date).to eq(DateTime.new(2017,10,01))
       end
     end
 
@@ -86,27 +86,13 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#time_limit_for_objection_date' do
     context 'Grom::Node has a time limit for objection date' do
       it 'returns a date' do
-        expect(@work_packageble_thing.time_limit_for_objection_date).to eq(DateTime.new(2017,05,06))
+        expect(@work_packageble_thing.time_limit_for_objection_date).to eq(DateTime.new(2018,05,22))
       end
     end
 
     context 'Grom::Node has no time limit for objection date' do
       it 'returns nil' do
         expect(@work_packageble_thing.time_limit_for_objection_date).to eq(nil)
-      end
-    end
-  end
-
-  describe '#statutory_instrument' do
-    context 'Grom::Node is a statutory instrument' do
-      it 'returns true' do
-        expect(@work_packageble_thing.statutory_instrument?).to eq(true)
-      end
-    end
-
-    context 'Grom::Node is not a statutory instrument' do
-      it 'returns false' do
-        expect(@work_packageble_thing.statutory_instrument?).to eq(false)
       end
     end
   end
@@ -125,6 +111,20 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
   end
 
+  describe '#statutory_instrument' do
+    context 'Grom::Node is a statutory instrument' do
+      it 'returns true' do
+        expect(@work_packageble_thing.statutory_instrument?).to eq(true)
+      end
+    end
+
+    context 'Grom::Node is not a statutory instrument' do
+      it 'returns false' do
+        expect(@work_packageble_thing.statutory_instrument?).to eq(false)
+      end
+    end
+  end
+
   describe '#work_packageable_thing_type' do
     context 'Grom::Node is a statutory instrument' do
       it 'returns SI' do
@@ -133,7 +133,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
 
     context 'Grom::Node is a proposed statutory instrument' do
-      it 'returns SI' do
+      it 'returns proposed SI' do
         expect(@work_packageble_thing.work_packageable_thing_type).to eq('Proposed SI')
       end
     end

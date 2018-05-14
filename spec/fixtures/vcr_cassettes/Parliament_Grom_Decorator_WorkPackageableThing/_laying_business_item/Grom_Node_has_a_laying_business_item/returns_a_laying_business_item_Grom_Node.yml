@@ -42,6 +42,8 @@ http_interactions:
         \"2017-10-01+00:00\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<https://id.parliament.uk/8lYUKjib>
         <https://id.parliament.uk/schema/workPackageableThingHasWorkPackageableThingWebLink>
         <https://www.legislation.gov.uk/uksi/2017/899/made> .\r\n<https://id.parliament.uk/8lYUKjib>
+        <https://id.parliament.uk/schema/layableThingHasLaying>
+        <https://id.parliament.uk/ysD5JYmA> .\r\n<https://id.parliament.uk/8lYUKjib>
         <https://id.parliament.uk/schema/statutoryInstrumentNumberPrefix> \"S.I.\"
         .\r\n<https://id.parliament.uk/8lYUKjib> <https://id.parliament.uk/schema/statutoryInstrumentNumber>
         \"899\" .\r\n<https://id.parliament.uk/CERw4sxU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
@@ -263,6 +265,8 @@ http_interactions:
         .\r\n<https://id.parliament.uk/CERw4sxU> <https://id.parliament.uk/schema/workPackageHasBusinessItem>
         <https://id.parliament.uk/ysD5JYmA> .\r\n<https://id.parliament.uk/ysD5JYmA>
         <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/BusinessItem>
+        .\r\n<https://id.parliament.uk/ysD5JYmA>
+        <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://id.parliament.uk/schema/Laying>
         .\r\n<https://id.parliament.uk/ysD5JYmA> <https://id.parliament.uk/schema/businessItemDate>
         \"2017-09-07+00:00\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<https://id.parliament.uk/ysD5JYmA>
         <https://id.parliament.uk/schema/businessItemHasBusinessItemWebLink> <https://www.legislation.gov.uk/uksi/2018/556/made>
@@ -963,6 +967,6 @@ http_interactions:
         <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx>
         .\r\n<https://id.parliament.uk/Vs03c8Bw> <https://id.parliament.uk/schema/businessItemHasProcedureStep>
         <https://id.parliament.uk/xdLIQx0e> .\r\n"
-    http_version: 
+    http_version:
   recorded_at: Mon, 14 May 2018 13:03:29 GMT
 recorded_with: VCR 3.0.3
