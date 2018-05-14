@@ -26,7 +26,7 @@ describe Parliament::Grom::Decorator::StatutoryInstrument, vcr: true do
   describe '#instrument_number' do
     context 'Grom::Node has an instrument number' do
       it 'returns the instrument number of the Grom::Node object' do
-        expect(@statutory_instrument.instrument_number).to eq('655')
+        expect(@statutory_instrument.instrument_number).to eq('899')
       end
     end
 
@@ -54,7 +54,7 @@ describe Parliament::Grom::Decorator::StatutoryInstrument, vcr: true do
   describe '#citation' do
     context 'Grom::Node has all required data for a citation' do
       it 'returns the citation of the Grom::Node object' do
-        expect(@statutory_instrument.citation).to eq('S.I. number 2018/655')
+        expect(@statutory_instrument.citation).to eq('S.I. number 2018/899')
       end
     end
 

@@ -43,8 +43,7 @@ http_interactions:
         <https://id.parliament.uk/schema/workPackageableThingHasWorkPackageableThingWebLink>
         <https://www.legislation.gov.uk/uksi/2017/899/made> .\r\n<https://id.parliament.uk/8lYUKjib>
         <https://id.parliament.uk/schema/statutoryInstrumentNumberPrefix> \"S.I.\"
-        .\r\n<https://id.parliament.uk/8lYUKjib> <https://id.parliament.uk/schema/statutoryInstrumentNumber>
-        \"899\" .\r\n<https://id.parliament.uk/CERw4sxU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+        .\r\n<https://id.parliament.uk/CERw4sxU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
         <https://id.parliament.uk/schema/WorkPackage> .\r\n<https://id.parliament.uk/CERw4sxU>
         <https://id.parliament.uk/schema/workPackageHasProcedure> <https://id.parliament.uk/H5YJQsK2>
         .\r\n<https://id.parliament.uk/CERw4sxU> <https://id.parliament.uk/schema/workPackageHasBusinessItem>
@@ -963,6 +962,6 @@ http_interactions:
         <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/WkUWUBMx>
         .\r\n<https://id.parliament.uk/Vs03c8Bw> <https://id.parliament.uk/schema/businessItemHasProcedureStep>
         <https://id.parliament.uk/xdLIQx0e> .\r\n"
-    http_version: 
+    http_version:
   recorded_at: Mon, 14 May 2018 13:02:28 GMT
 recorded_with: VCR 3.0.3
