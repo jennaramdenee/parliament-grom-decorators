@@ -12,27 +12,13 @@ describe Parliament::Grom::Decorator::Procedure, vcr: true do
   describe '#name' do
     context 'Grom::Node has a name' do
       it 'returns the name of the Grom::Node object' do
-        expect(@procedure.name).to eq('Made Affirmative')
+        expect(@procedure.name).to eq('Made Negative')
       end
     end
 
     context 'Grom::Node does not have a name' do
       it 'returns an empty string' do
         expect(@procedure.name).to eq('')
-      end
-    end
-  end
-
-  describe '#made_affirmative' do
-    context "Grom::Node has a procedure name of 'Made Affirmative'" do
-      xit 'returns true' do
-        expect(@procedure.made_affirmative?).to eq(true)
-      end
-    end
-
-    context "Grom::Node does not have a procedure name of 'Made Affirmative'" do
-      xit 'returns false' do
-        expect(@procedure.made_affirmative?).to eq(false)
       end
     end
   end
