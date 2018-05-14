@@ -44,7 +44,7 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
   describe '#actualised_steps' do
     context 'Grom::Node has a set of actualised steps' do
       it 'returns an array of Grom::Nodes for the Grom::Node object' do
-        expect(@work_package.actualised_steps.size).to eq(6)
+        expect(@work_package.actualised_steps.size).to eq(12)
       end
 
       it 'returns an array of ProcedureStep Grom::Nodes for the Grom::Node object' do
