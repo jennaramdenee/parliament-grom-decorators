@@ -10,6 +10,13 @@ module Parliament
           respond_to?(:procedureName) ? procedureName : ''
         end
 
+        # Alias procedureHasWorkPackage with fallback.
+        #
+        # @return [Array, Array] an array of WorkPackage Grom::Nodes or an empty array.
+        def work_packages
+          respond_to?(:procedureHasWorkPackage) ? procedureHasWorkPackage : []
+        end
+
         # @return [Bool] whether a procedure is affirmative made.
         def made_affirmative?
           name == 'Made Affirmative'

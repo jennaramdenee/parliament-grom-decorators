@@ -22,4 +22,18 @@ describe Parliament::Grom::Decorator::Procedure, vcr: true do
       end
     end
   end
+
+  describe '#work_packages' do
+    context 'Grom::Node has a work package' do
+      it 'returns the WorkPackage Grom::Node object' do
+        expect(@procedure.work_packages.first.type).to eq('https://id.parliament.uk/schema/WorkPackage')
+      end
+    end
+
+    context 'Grom::Node does not have any work packages' do
+      it 'returns an empty array' do
+        expect(@procedure.work_packages).to eq([])
+      end
+    end
+  end
 end
