@@ -45,6 +45,18 @@ module Parliament
           @potential_next_steps << causes_routes.map(&:steps)
           @potential_next_steps.flatten!
         end
+
+        # Alias procedureStepIsFromProcedureRoute with fallback.
+        #
+        # @return [Array, Array] an array of ProcedureRoute Grom::Nodes or an empty array.
+        def preceding_routes
+          respond_to?(:procedureStepIsFromProcedureRoute) ? procedureStepIsFromProcedureRoute : []
+        end
+        # Travel up the ancestry trees finding orphaned procedure steps
+        #
+        # @return [Int] an array of orphaned ancestral collections related to the Grom::Node or an empty Array.
+        def distance_from_origin
+        end
       end
     end
   end

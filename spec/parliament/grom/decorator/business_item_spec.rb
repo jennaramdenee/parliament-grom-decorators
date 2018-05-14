@@ -30,7 +30,7 @@ describe Parliament::Grom::Decorator::BusinessItem, vcr: true do
   describe '#date' do
     context 'Grom::Node has a date' do
       it 'returns a date' do
-        expect(@business_item.date).to eq(DateTime.new(2018, 4, 18, 0, 0, 0))
+        expect(@business_item.date).to eq(DateTime.new(2017, 11, 15, 0, 0, 0))
       end
     end
 
@@ -44,7 +44,7 @@ describe Parliament::Grom::Decorator::BusinessItem, vcr: true do
   describe '#web_link' do
     context 'Grom::Node has a web link' do
       it 'returns a web link' do
-        expect(@business_item.web_link).to eq('http://www.legislation.gov.uk/ukdsi/2018/9780111169063')
+        expect(@business_item.web_link).to eq('https://publications.parliament.uk/pa/jt201719/jtselect/jtstatin/40/4002.htm')
       end
     end
 
@@ -58,13 +58,41 @@ describe Parliament::Grom::Decorator::BusinessItem, vcr: true do
   describe '#laying_body' do
     context 'Grom::Node has a laying body' do
       it 'returns a Grom::Node representing the laying body' do
-        expect(@business_item.laying_date).to include('https://id.parliament.uk/schema/Group')
+        expect(@business_item.laying_body.type).to include('https://id.parliament.uk/schema/Group')
       end
     end
 
     context 'Grom::Node has no laying date' do
       it 'returns nil' do
-        expect(@business_item.laying_date).to eq(nil)
+        expect(@business_item.laying_body).to eq(nil)
+      end
+    end
+  end
+
+  describe '#procedure_steps_houses' do
+    context 'Grom::Node has a set of procedure step houses' do
+      it 'returns an array of Grom::Nodes representing procedure step houses' do
+        expect(@business_item.procedure_steps_houses.first.type).to include('https://id.parliament.uk/schema/House')
+      end
+    end
+
+    context 'Grom::Node has no procedure step houses' do
+      it 'returns an empty array' do
+        expect(@business_item.procedure_steps_houses).to eq([])
+      end
+    end
+  end
+
+  describe '#procedure_steps_house_names' do
+    context 'Grom::Node has a set of procedure step house names' do
+      it 'returns an array of Grom::Nodes representing procedure step houses' do
+        expect(@business_item.procedure_steps_house_names).to eq('House of Commons and House of Lords')
+      end
+    end
+
+    context 'Grom::Node has no procedure step house names' do
+      it 'returns an empty string' do
+        expect(@business_item.procedure_steps_house_names).to eq('')
       end
     end
   end

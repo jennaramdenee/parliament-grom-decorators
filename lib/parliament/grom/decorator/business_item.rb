@@ -40,6 +40,7 @@ module Parliament
           procedure_steps.map(&:houses).flatten.uniq
         end
 
+        # @return [String, String] an Array of all House Grom::Nodes, or an empty array.
         def procedure_steps_house_names
           procedure_steps_houses.map(&:name).join(' and ')
         end

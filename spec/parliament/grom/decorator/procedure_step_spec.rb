@@ -108,4 +108,26 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
       end
     end
   end
+
+  describe '#preceding_routes' do
+    context 'Grom::Node has a set of proceding routes' do
+      it 'returns an array of the Grom::Nodes' do
+        expect(@procedure_step.preceding_routes.is_a?(Array)).to eq(true)
+      end
+
+      it 'returns an array of ProcedureRoute Grom::Nodes' do
+        expect(@procedure_step.preceding_routes.first.type).to include('https://id.parliament.uk/schema/ProcedureRoute')
+      end
+    end
+
+    context 'Grom::Node does not have a set of proceding routes' do
+      it 'returns an empty array' do
+        expect(@procedure_step.preceding_routes).to eq([])
+      end
+    end
+  end
+
+  describe '#distance_from_origin' do
+  end
+
 end
