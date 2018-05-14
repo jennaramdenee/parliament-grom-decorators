@@ -17,8 +17,22 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     end
 
     context 'Grom::Node does not have a procedure' do
-      it 'returns an empty array' do
+      it 'returns nil' do
         expect(@work_package.procedure).to eq(nil)
+      end
+    end
+  end
+
+  describe '#work_packageable_thing' do
+    context 'Grom::Node has a work packageable thing' do
+      it 'returns an array of procedure Grom::Nodes for the Grom::Node object' do
+        expect(@work_package.work_packageable_thing.type).to include('https://id.parliament.uk/schema/WorkPackageableThing')
+      end
+    end
+
+    context 'Grom::Node does not have a work packageable thing' do
+      it 'returns nil' do
+        expect(@work_package.work_packageable_thing).to eq(nil)
       end
     end
   end
