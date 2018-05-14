@@ -12,7 +12,7 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
   describe '#name' do
     context 'Grom::Node has a name' do
       it 'returns the name of the Grom::Node object' do
-        expect(@procedure_step.name).to eq('Laying into Lords')
+        expect(@procedure_step.name).to eq('Consideration by the Joint Committee on Statutory Instruments')
       end
     end
 
@@ -26,7 +26,7 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
   describe '#colloquial_name' do
     context 'Grom::Node has a colloquial name' do
       it 'returns the common name of the Grom::Node object' do
-        expect(@procedure_step.colloquial_name).to eq('Laying of papers')
+        expect(@procedure_step.colloquial_name).to eq('Consideration by the JCSI')
       end
     end
 
@@ -108,26 +108,4 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
       end
     end
   end
-
-  describe '#preceding_routes' do
-    context 'Grom::Node has a set of proceding routes' do
-      it 'returns an array of the Grom::Nodes' do
-        expect(@procedure_step.preceding_routes.is_a?(Array)).to eq(true)
-      end
-
-      it 'returns an array of ProcedureRoute Grom::Nodes' do
-        expect(@procedure_step.preceding_routes.first.type).to include('https://id.parliament.uk/schema/ProcedureRoute')
-      end
-    end
-
-    context 'Grom::Node does not have a set of proceding routes' do
-      it 'returns an empty array' do
-        expect(@procedure_step.preceding_routes).to eq([])
-      end
-    end
-  end
-
-  describe '#distance_from_origin' do
-  end
-
 end
