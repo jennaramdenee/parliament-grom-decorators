@@ -111,10 +111,30 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
   end
 
+  describe '#proposed_statutory_instrument' do
+    context 'Grom::Node is a proposed statutory instrument' do
+      it 'returns true' do
+        expect(@work_packageble_thing.proposed_statutory_instrument?).to eq(true)
+      end
+    end
+
+    context 'Grom::Node is not a proposed statutory instrument' do
+      it 'returns false' do
+        expect(@work_packageble_thing.proposed_statutory_instrument?).to eq(false)
+      end
+    end
+  end
+
   describe '#work_packageable_thing_type' do
     context 'Grom::Node is a statutory instrument' do
       it 'returns SI' do
         expect(@work_packageble_thing.work_packageable_thing_type).to eq('SI')
+      end
+    end
+
+    context 'Grom::Node is a proposed statutory instrument' do
+      it 'returns SI' do
+        expect(@work_packageble_thing.work_packageable_thing_type).to eq('Proposed SI')
       end
     end
 

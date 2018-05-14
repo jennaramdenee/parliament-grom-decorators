@@ -50,6 +50,13 @@ module Parliament
         # Alias workPackageableThingComingIntoForceDate with fallback.
         #
         # @return [Boolean] whether or not the work package is a statutory instrument.
+        def proposed_statutory_instrument?
+          type.include?('https://id.parliament.uk/schema/ProposedStatutoryInstrument')
+        end
+
+        # Alias workPackageableThingComingIntoForceDate with fallback.
+        #
+        # @return [Boolean] whether or not the work package is a statutory instrument.
         def statutory_instrument?
           type.include?('https://id.parliament.uk/schema/StatutoryInstrument')
         end
@@ -57,6 +64,7 @@ module Parliament
         # @return [String] the type of work packageable thing.
         def work_packageable_thing_type
           work_packageable_thing_type = 'SI' if statutory_instrument?
+          work_packageable_thing_type = 'Proposed SI' if proposed_statutory_instrument?
         end
       end
     end

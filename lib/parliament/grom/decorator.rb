@@ -32,9 +32,10 @@ require 'parliament/grom/decorator/party_membership'
 require 'parliament/grom/decorator/person'
 require 'parliament/grom/decorator/position'
 require 'parliament/grom/decorator/postal_address'
-require 'parliament/grom/decorator/procedure'
 require 'parliament/grom/decorator/procedure_route'
 require 'parliament/grom/decorator/procedure_step'
+require 'parliament/grom/decorator/proposed_statutory_instrument'
+require 'parliament/grom/decorator/procedure'
 require 'parliament/grom/decorator/question'
 require 'parliament/grom/decorator/seat_incumbency'
 require 'parliament/grom/decorator/statutory_instrument'
@@ -93,6 +94,7 @@ module Parliament
         'ProcedureRoute'                    => ProcedureRoute,
         'BusinessItem'                      => BusinessItem,
         'StatutoryInstrument'               => StatutoryInstrument,
+        'ProposedStatutoryInstrument'       => ProposedStatutoryInstrument,
         'Question'                          => Question,
         'Answer'                            => Answer,
         'AnsweringBodyAllocation'           => AnsweringBodyAllocation
