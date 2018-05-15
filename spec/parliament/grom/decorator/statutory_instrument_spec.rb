@@ -12,7 +12,7 @@ describe Parliament::Grom::Decorator::StatutoryInstrument, vcr: true do
   describe '#number_prefix' do
     context 'Grom::Node has a number prefix' do
       it 'returns the number prefix of the Grom::Node object' do
-        expect(@statutory_instrument.number_prefix).to eq('S.I.')
+        expect(@statutory_instrument.number_prefix).to eq('SI')
       end
     end
 
@@ -54,7 +54,7 @@ describe Parliament::Grom::Decorator::StatutoryInstrument, vcr: true do
   describe '#citation' do
     context 'Grom::Node has all required data for a citation' do
       it 'returns the citation of the Grom::Node object' do
-        expect(@statutory_instrument.citation).to eq('S.I. number 2018/899')
+        expect(@statutory_instrument.citation).to eq('SI number 2018/899')
       end
     end
 

@@ -42,7 +42,7 @@ http_interactions:
         \"2017-10-01+00:00\"^^<http://www.w3.org/2001/XMLSchema#date> .\r\n<https://id.parliament.uk/8lYUKjib>
         <https://id.parliament.uk/schema/workPackageableThingHasWorkPackageableThingWebLink>
         <https://www.legislation.gov.uk/uksi/2017/899/made> .\r\n<https://id.parliament.uk/8lYUKjib>
-        <https://id.parliament.uk/schema/statutoryInstrumentNumberPrefix> \"S.I.\"
+        <https://id.parliament.uk/schema/statutoryInstrumentNumberPrefix> \"SI\"
         .\r\n<https://id.parliament.uk/8lYUKjib> <https://id.parliament.uk/schema/statutoryInstrumentNumber>
         \"899\" .\r\n<https://id.parliament.uk/8lYUKjib> <https://id.parliament.uk/schema/statutoryInstrumentNumberYear>
         \"2018\" .\r\n<https://id.parliament.uk/CERw4sxU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
