@@ -69,6 +69,20 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
   end
 
+  describe '#laying_business_item_date' do
+    context 'Grom::Node has a date' do
+      it 'returns a date' do
+        expect(@work_packageble_thing.laying_business_item_date).to eq(DateTime.new(2017, 9, 7, 0, 0, 0))
+      end
+    end
+
+    context 'Grom::Node has no date' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.laying_business_item_date).to eq(nil)
+      end
+    end
+  end
+
   describe '#coming_into_force_date' do
     context 'Grom::Node has a coming into force date' do
       it 'returns a date' do

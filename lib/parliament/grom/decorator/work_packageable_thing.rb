@@ -33,6 +33,13 @@ module Parliament
           respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
         end
 
+        # The date of the business item representing the laying of a work packageable thing
+        #
+        # @return [Date, nil] a laying date or nil.
+        def laying_business_item_date
+          laying_business_item.date
+        end
+        
         # Alias workPackageableThingComingIntoForceDate with fallback.
         #
         # @return [DateTime, nil] the date a work package has come into force or nil.
