@@ -63,7 +63,7 @@ http_interactions:
         \"Consideration by the Joint Committee on Statutory Instruments\" .\r\n<https://id.parliament.uk/e9G2vHbc>
         <https://id.parliament.uk/schema/procedureStepHasHouse> <https://id.parliament.uk/1AFu55Hs>
         .\r\n<https://id.parliament.uk/e9G2vHbc>
-        <https://id.parliament.uk/schema/procedureStepCausesProcedureRoute> <https://id.parliament.uk/1O8W6asw>
+        <https://id.parliament.uk/schema/procedureStepCausesCausedProcedureRoute> <https://id.parliament.uk/1O8W6asw>
         .\r\n<https://id.parliament.uk/e9G2vHbc> <https://id.parliament.uk/schema/procedureStepCausesCausedProcedureRoute>
         <https://id.parliament.uk/1O8W6asw> .\r\n<https://id.parliament.uk/e9G2vHbc>
         <https://id.parliament.uk/schema/procedureStepRequiresRequiredProcedureRoute>

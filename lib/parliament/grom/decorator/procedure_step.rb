@@ -28,14 +28,14 @@ module Parliament
         #
         # @return [Array, Array] an array of AllowedProcedureRoute Grom::Nodes or an empty array.
         def allows_routes
-          respond_to?(:procedureStepAllowsProcedureRoute) ? procedureStepAllowsProcedureRoute : []
+          respond_to?(:procedureStepAllowsAllowedProcedureRoute) ? procedureStepAllowsAllowedProcedureRoute : []
         end
 
         # Alias procedureStepCausesProcedureRoute with fallback.
         #
         # @return [Array, Array] an array of CausedProcedureRoute Grom::Nodes or an empty array.
         def causes_routes
-          respond_to?(:procedureStepCausesProcedureRoute) ? procedureStepCausesProcedureRoute : []
+          respond_to?(:procedureStepCausesCausedProcedureRoute) ? procedureStepCausesCausedProcedureRoute : []
         end
 
         # @return [Array, Array] an array of ProcedureStep Grom::Nodes or an empty array.
@@ -44,6 +44,10 @@ module Parliament
           @potential_next_steps << allows_routes.map(&:steps)
           @potential_next_steps << causes_routes.map(&:steps)
           @potential_next_steps.flatten!
+        end
+
+        def root_procedure_step?
+          !respond_to?(:procedureStepIsFromProcedureRoute)
         end
       end
     end
