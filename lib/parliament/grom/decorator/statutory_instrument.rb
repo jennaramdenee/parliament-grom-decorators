@@ -28,7 +28,7 @@ module Parliament
         #
         # @return [String, String] a citation or an empty string.
         def citation
-          !number_prefix.empty? && !number_year.empty? && !instrument_number.empty? ? "#{number_prefix} number #{number_year}/#{instrument_number}" : ''
+          !number_prefix.empty? && !number_year.empty? && !instrument_number.empty? ? "#{number_prefix} #{number_year}/#{instrument_number}" : ''
         end
       end
     end

@@ -55,6 +55,10 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     end
   end
 
+  describe '#laying_business_item' do
+    pending
+  end
+
   describe '#actualised_steps' do
     context 'Grom::Node has a set of actualised steps' do
       it 'returns an array of Grom::Nodes for the Grom::Node object' do

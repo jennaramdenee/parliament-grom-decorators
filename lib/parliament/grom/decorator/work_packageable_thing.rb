@@ -70,8 +70,8 @@ module Parliament
 
         # @return [String] the type of work packageable thing.
         def work_packageable_thing_type
-          work_packageable_thing_type = 'SI' if statutory_instrument?
-          work_packageable_thing_type = 'Proposed SI' if proposed_statutory_instrument?
+          work_packageable_thing_type = 'statutory instrument' if statutory_instrument?
+          work_packageable_thing_type = 'proposed statutory instrument' if proposed_statutory_instrument?
           work_packageable_thing_type
         end
       end
