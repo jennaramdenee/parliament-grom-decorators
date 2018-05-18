@@ -58,11 +58,11 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#laying_business_item' do
     context 'Grom::Node has a laying business item' do
       it 'returns a laying business item Grom::Node' do
-        expect(@work_packageble_thing.laying_business_item.type).to include('https://id.parliament.uk/schema/Laying')
+        expect(@work_packageble_thing.laying_business_item.type).to include('https://id.parliament.uk/schema/BusinessItem')
       end
     end
 
-    context 'Grom::Node does not have any business items' do
+    context 'Grom::Node does not have a laying business item' do
       it 'returns an empty array' do
         expect(@work_packageble_thing.laying_business_item).to eq(nil)
       end
@@ -72,7 +72,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#laying_business_item_date' do
     context 'Grom::Node has a date' do
       it 'returns a date' do
-        expect(@work_packageble_thing.laying_business_item_date).to eq(DateTime.new(2017, 9, 7, 0, 0, 0))
+        expect(@work_packageble_thing.laying_business_item_date).to eq(DateTime.new(2018, 4, 30, 0, 0, 0))
       end
     end
 

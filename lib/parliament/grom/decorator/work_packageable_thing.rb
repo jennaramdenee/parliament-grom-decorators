@@ -29,8 +29,7 @@ module Parliament
         #
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
         def laying_business_item
-          # business_items.find { |business_item| business_item.laying_body.present? }
-          respond_to?(:layableThingHasLaying) ? layableThingHasLaying.first : nil
+          work_package.business_items.find { |business_item| business_item.laying_body }
         end
 
         # The date of the business item representing the laying of a work packageable thing

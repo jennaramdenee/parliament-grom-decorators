@@ -45,10 +45,6 @@ module Parliament
           @potential_next_steps << causes_routes.map(&:steps)
           @potential_next_steps.flatten!
         end
-
-        def root_procedure_step?
-          !respond_to?(:procedureStepIsFromProcedureRoute)
-        end
       end
     end
   end
