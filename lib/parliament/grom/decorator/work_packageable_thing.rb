@@ -25,11 +25,19 @@ module Parliament
           respond_to?(:workPackageableThingHasWorkPackageableThingWebLink) ? workPackageableThingHasWorkPackageableThingWebLink : ''
         end
 
+        # Uses work_package method in this set of decorators, which could return nil.
+        # Uses business_items method in WorkPackage decorators, which could return an empty array.
+        #
+        # @return [Boolean] whether a work packageable thing has both a work package and some business items.
+        def work_package_and_business_items?
+          work_package ? work_package.business_items.any? : false
+        end
+
         # The business item representing the laying of a work packageable thing
         #
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
         def laying_business_item
-          work_package.business_items.find { |business_item| business_item.laying_body }
+          work_package_and_business_items? ? work_package.business_items.find { |business_item| business_item.laying_body } : nil
         end
 
         # The date of the business item representing the laying of a work packageable thing
@@ -37,6 +45,16 @@ module Parliament
         # @return [Date, nil] a laying date or nil.
         def laying_business_item_date
           laying_business_item&.date
+        end
+
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def oldest_business_item
+          work_package_and_business_items? ? work_package.business_items.sort_by(&:date).last : nil
+        end
+
+        # @return [Date, nil] an array of BusinessItem Grom::Nodes or an empty array.
+        def oldest_business_item_date
+          oldest_business_item&.date
         end
 
         # Alias workPackageableThingComingIntoForceDate with fallback.

@@ -55,15 +55,35 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
   end
 
+  describe '#work_package_and_business_items' do
+    context 'Grom::Node has both a work package and business items' do
+      it 'returns true' do
+        expect(@work_packageble_thing.work_package_and_business_items?).to eq(true)
+      end
+    end
+
+    context 'Grom::Node does not have a work package' do
+      it 'returns false' do
+        expect(@work_packageble_thing.work_package_and_business_items?).to eq(false)
+      end
+    end
+
+    context 'Grom::Node has a work package but no business items' do
+      it 'returns false' do
+        expect(@work_packageble_thing.work_package_and_business_items?).to eq(false)
+      end
+    end
+  end
+
   describe '#laying_business_item' do
     context 'Grom::Node has a laying business item' do
-      it 'returns a laying business item Grom::Node' do
+      xit 'returns a laying business item Grom::Node' do
         expect(@work_packageble_thing.laying_business_item.type).to include('https://id.parliament.uk/schema/BusinessItem')
       end
     end
 
     context 'Grom::Node does not have a laying business item' do
-      it 'returns an empty array' do
+      xit 'returns an empty array' do
         expect(@work_packageble_thing.laying_business_item).to eq(nil)
       end
     end
@@ -71,14 +91,48 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
 
   describe '#laying_business_item_date' do
     context 'Grom::Node has a date' do
-      it 'returns a date' do
+      xit 'returns a date' do
         expect(@work_packageble_thing.laying_business_item_date).to eq(DateTime.new(2018, 4, 30, 0, 0, 0))
       end
     end
 
     context 'Grom::Node has no date' do
-      it 'returns nil' do
+      xit 'returns nil' do
         expect(@work_packageble_thing.laying_business_item_date).to eq(nil)
+      end
+    end
+  end
+
+  describe '#oldest_business_item' do
+    context 'Grom::Node has an oldest business item' do
+      it 'returns a business item Grom::Node' do
+        expect(@work_packageble_thing.oldest_business_item.type).to include('https://id.parliament.uk/schema/BusinessItem')
+      end
+    end
+
+    context 'Grom::Node does not have an oldest business item' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.oldest_business_item).to eq(nil)
+      end
+    end
+  end
+
+  describe '#oldest_business_item_date' do
+    context 'Grom::Node has an oldest business item date' do
+      it 'returns a date' do
+        expect(@work_packageble_thing.oldest_business_item_date).to eq(DateTime.new(2017,11,15,0,0,0))
+      end
+    end
+
+    context 'Grom::Node has an oldest business item with no date' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.oldest_business_item_date).to eq(nil)
+      end
+    end
+
+    context 'Grom::Node does not have any business items' do
+      it 'returns nil' do
+        expect(@work_packageble_thing.oldest_business_item_date).to eq(nil)
       end
     end
   end

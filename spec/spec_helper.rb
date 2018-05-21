@@ -11,7 +11,7 @@ require 'parliament'
 require 'parliament/ntriple'
 require 'parliament/grom/decorator'
 
-require 'webmock/rspec'
+# require 'webmock/rspec'
 require 'vcr'
 require 'timecop'
 
