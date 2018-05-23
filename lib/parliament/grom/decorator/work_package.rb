@@ -25,6 +25,16 @@ module Parliament
         def business_items
           respond_to?(:workPackageHasBusinessItem) ? workPackageHasBusinessItem : []
         end
+
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def oldest_business_item
+          business_items.any? ? business_items.sort_by(&:date).last : nil
+        end
+
+        # @return [Date, nil] an array of BusinessItem Grom::Nodes or an empty array.
+        def oldest_business_item_date
+          oldest_business_item&.date
+        end
       end
     end
   end
