@@ -23,6 +23,14 @@ module Parliament
         def distance_from_origin
           respond_to?(:distance) ? distance.to_i : 0
         end
+
+        # Alias procedureStepHasBusinessItem with fallback.
+        # NB: A procedure step can only have one business item
+        #
+        # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
+        def business_item
+          respond_to?(:procedureStepHasBusinessItem) ? procedureStepHasBusinessItem.first : nil
+        end
       end
     end
   end

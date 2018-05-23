@@ -55,4 +55,19 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
     end
   end
 
+  describe '#business_item' do
+    context 'Grom::Node has a business item' do
+      it 'returns a BusinessItem Grom::Node' do
+        expect(@procedure_step.business_item.type).to eq('https://id.parliament.uk/schema/BusinessItem')
+      end
+    end
+
+    context 'Grom::Node does not have a business item' do
+      it 'returns nil' do
+        expect(@procedure_step.business_item).to eq(nil)
+      end
+    end
+  end
+
+
 end
