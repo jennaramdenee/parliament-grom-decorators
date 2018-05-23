@@ -31,6 +31,11 @@ module Parliament
         def business_item
           respond_to?(:procedureStepHasBusinessItem) ? procedureStepHasBusinessItem.first : nil
         end
+
+        # @return [Date, nil] a date or nil.
+        def business_item_date
+          business_item&.date
+        end
       end
     end
   end

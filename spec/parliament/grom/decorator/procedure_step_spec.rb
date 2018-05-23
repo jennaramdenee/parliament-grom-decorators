@@ -69,5 +69,23 @@ describe Parliament::Grom::Decorator::ProcedureStep, vcr: true do
     end
   end
 
+  describe '#business_item_date' do
+    context 'Grom::Node has a business item with a date' do
+      it 'returns a date' do
+        expect(@procedure_step.business_item_date).to eq(DateTime.new(2017, 11, 15, 0, 0, 0))
+      end
+    end
 
+    context 'Grom::Node has a business item with no date' do
+      it 'returns nil' do
+        expect(@procedure_step.business_item_date).to eq(nil)
+      end
+    end
+
+    context 'Grom::Node does not have a business item' do
+      it 'returns nil' do
+        expect(@procedure_step.business_item_date).to eq(nil)
+      end
+    end
+  end
 end
