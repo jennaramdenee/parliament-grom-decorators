@@ -3,6 +3,7 @@ module Parliament
     module Decorator
       # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/WorkPackage
       module WorkPackage
+        include Helpers::DateHelper
         # Alias workPackageHasProcedure with fallback.
         # NB: Currently, work packages only have one procedure
         #
@@ -19,6 +20,11 @@ module Parliament
           respond_to?(:workPackageHasWorkPackageableThing) ? workPackageHasWorkPackageableThing.first : nil
         end
 
+        # @return [String, nil] the name of the Grom::Node or an empty string.
+        def work_packageable_thing_name
+          work_packageable_thing&.name
+        end
+
         # Alias workPackageHasBusinessItem with fallback.
         #
         # @return [Array, Array] an array of BusinessItem Grom::Nodes or an empty array.
@@ -32,9 +38,11 @@ module Parliament
           business_items.sort_by(&:date).last
         end
 
-        # @return [Date, nil] an array of BusinessItem Grom::Nodes or an empty array.
+        # Alias oldestBusinessItemDate with fallback.
+        #
+        # @return [Date, nil] a date or nil.
         def oldest_business_item_date
-          oldest_business_item&.date
+          respond_to?(:oldestBusinessItemDate) ? DateTime.parse(oldestBusinessItemDate) : nil
         end
       end
     end

@@ -3,6 +3,7 @@ module Parliament
     module Decorator
       # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/WorkPackageableThing
       module WorkPackageableThing
+        include Helpers::DateHelper
         # Alias workPackageableThingName with fallback.
         #
         # @return [String, String] the name of the Grom::Node or an empty string.
@@ -25,22 +26,14 @@ module Parliament
           respond_to?(:workPackageableThingHasWorkPackageableThingWebLink) ? workPackageableThingHasWorkPackageableThingWebLink : ''
         end
 
-        # Uses work_package method in this set of decorators, which could return nil.
-        # Uses business_items method in WorkPackage decorators, which could return an empty array.
-        #
-        # @return [Boolean] whether a work packageable thing has both a work package and some business items.
-        def work_package_and_business_items?
-          work_package ? work_package.business_items.any? : false
-        end
-
         # @return [Grom::Node, nil] a BusinessItem Grom::Node or nil.
         def oldest_business_item
-          work_package_and_business_items? ? work_package.business_items.sort_by(&:date).last : nil
+          work_package&.oldest_business_item
         end
 
         # @return [Date, nil] an array of BusinessItem Grom::Nodes or an empty array.
         def oldest_business_item_date
-          oldest_business_item&.date
+          work_package&.oldest_business_item_date
         end
 
         # Alias workPackageableThingComingIntoForceDate with fallback.

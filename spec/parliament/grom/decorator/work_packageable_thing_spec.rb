@@ -55,26 +55,6 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
     end
   end
 
-  describe '#work_package_and_business_items' do
-    context 'Grom::Node has both a work package and business items' do
-      it 'returns true' do
-        expect(@work_packageble_thing.work_package_and_business_items?).to eq(true)
-      end
-    end
-
-    context 'Grom::Node does not have a work package' do
-      it 'returns false' do
-        expect(@work_packageble_thing.work_package_and_business_items?).to eq(false)
-      end
-    end
-
-    context 'Grom::Node has a work package but no business items' do
-      it 'returns false' do
-        expect(@work_packageble_thing.work_package_and_business_items?).to eq(false)
-      end
-    end
-  end
-
   describe '#oldest_business_item' do
     context 'Grom::Node has an oldest business item' do
       it 'returns a business item Grom::Node' do
@@ -92,7 +72,7 @@ describe Parliament::Grom::Decorator::WorkPackageableThing, vcr: true do
   describe '#oldest_business_item_date' do
     context 'Grom::Node has an oldest business item date' do
       it 'returns a date' do
-        expect(@work_packageble_thing.oldest_business_item_date).to eq(DateTime.new(2017,11,15,0,0,0))
+        expect(@work_packageble_thing.oldest_business_item_date).to eq(DateTime.new(2018,04,30,0,0,0))
       end
     end
 
