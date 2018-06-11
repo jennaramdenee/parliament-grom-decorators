@@ -39,20 +39,23 @@ module Parliament
           respond_to?(:oldestBusinessItemDate) ? DateTime.parse(oldestBusinessItemDate) : nil
         end
 
-        ## CURRENT STUFF ##
+        def current?
+          !(expired? || withdrawn? || decision_made?)
+        end
 
         # @return [Bool] Whether a work package has been withdrawn.
         def withdrawn?
-          # If business items have procedure step withdrawn
-          # business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Withdrawal of motion') }
           # TODO: Implement
         end
 
-        # @return [Bool] Whether a work package has expired (clock has ended).
+        # Method checks to see whether procedure steps have been actualised by business items
+        #
+        # @return [Bool] Whether a work package has expired.
+        # @note 'g8B3R2Ou' represents end of 40 day time limit to move a negative resolution (negative SIs)
+        # @note 'Ksnj7JJ8' represents end of time limit for approval (made affirmative SIs)
+
         def expired?
-          # If clock has ended
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approval clock ends') }
-          # TODO: Implement
+          (business_item.procedure_steps.map(&:graph_id) & ['g8B3R2Ou', 'Ksnj7JJ8']).any?
         end
 
         # @return [Bool] Whether a decision has been made on an SI (approved or rejected).
@@ -60,16 +63,25 @@ module Parliament
           approved? || rejected?
         end
 
-        # @return [Bool] Whether a work package has been approved.
+        # Method checks to see whether procedure steps have been actualised by business items
+        #
+        # @return [Bool] Whether a work package has been approved by either both houses, or by the House of Commons.
+        # @note 'FYeLHMEw' represents approval by both houses
+        # @note '0XYsDfhL' represents approval by the House of Commons (if a Commons only SI)
+        #
         def approved?
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approved') }
-          # TODO: Implement
+          (business_item.procedure_steps.map(&:graph_id) & ['FYeLHMEw', '0XYsDfhL']).any?
         end
 
+        # Method checks to see whether procedure steps have been actualised by business items
+        #
         # @return [Bool] Whether a work package has been rejected.
+        # @note '60eN08eS' represents instrument rejected and ceases to be law (for made affirmative SIs)
+        # @note 'pJMUACWK' represents instrument annulled (for made negative SIs)
+        # @note 'Z7EekLUl' represents instrument cannot be made law (for draft SIs)
+        #
         def rejected?
-          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('SI Dead') }
-          # TODO: Implement
+          (business_item.procedure_steps.map(&:graph_id) & ['60eN08eS', 'pJMUACWK', 'Z7EekLUl']).any?
         end
       end
     end

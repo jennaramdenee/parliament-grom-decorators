@@ -95,4 +95,175 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
     end
   end
 
+  describe '#current' do
+    context 'expiration' do
+      context 'when work package has expired' do
+        it 'returns false' do
+          expect(@work_package.current?).to eq(false)
+        end
+      end
+
+      context 'when work package has not expired' do
+        it 'returns true' do
+          expect(@work_package.current?).to eq(true)
+        end
+      end
+    end
+
+    context 'withdrawn' do
+      context 'when work package has been withdrawn' do
+        it 'returns false' do
+          expect(@work_package.current?).to eq(false)
+        end
+      end
+
+      context 'when work package has not been withdrawn' do
+        it 'returns true' do
+          expect(@work_package.current?).to eq(true)
+        end
+      end
+    end
+
+    context 'decision made' do
+      context 'when work package has had a decision made' do
+        it 'returns false' do
+          expect(@work_package.current?).to eq(false)
+        end
+      end
+
+      context 'when work package has not had a decision made' do
+        it 'returns true' do
+          expect(@work_package.current?).to eq(true)
+        end
+      end
+    end
+  end
+
+  describe 'withdrawn' do
+    pending
+  end
+
+  describe 'expired' do
+    context 'end of 40 day time limit' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.expired?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.expired?).to eq(false)
+        end
+      end
+    end
+
+    context 'end of time limit for approval' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.expired?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.expired?).to eq(false)
+        end
+      end
+    end
+  end
+
+  describe 'decision_made' do
+    context 'when approved' do
+      it 'returns true' do
+        expect(@work_package.decision_made?).to eq(true)
+      end
+
+    end
+    context 'when rejected' do
+      it 'returns true' do
+        expect(@work_package.decision_made?).to eq(true)
+      end
+    end
+
+    context 'when neither approved or rejected' do
+      it 'returns false' do
+        expect(@work_package.decision_made?).to eq(false)
+      end
+    end
+  end
+
+  describe 'approved' do
+    context 'by both houses' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.approved?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.approved?).to eq(false)
+        end
+      end
+    end
+
+    context 'end of time limit for approval' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.approved?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.approved?).to eq(false)
+        end
+      end
+    end
+  end
+
+  describe 'rejected' do
+    context 'instrument rejected and ceases to be law' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.rejected?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.rejected?).to eq(false)
+        end
+      end
+    end
+
+    context 'instrument annulled' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.rejected?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.rejected?).to eq(false)
+        end
+      end
+    end
+
+    context 'instrument cannot be made law' do
+      context 'has been actualised' do
+        it 'returns true' do
+          expect(@work_package.rejected?).to eq(true)
+        end
+      end
+
+      context 'has not been actualised' do
+        it 'returns false' do
+          expect(@work_package.rejected?).to eq(false)
+        end
+      end
+    end
+  end
 end
