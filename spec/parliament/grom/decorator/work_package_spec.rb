@@ -112,13 +112,13 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
 
     context 'withdrawn' do
       context 'when work package has been withdrawn' do
-        it 'returns false' do
+        xit 'returns false' do
           expect(@work_package.current?).to eq(false)
         end
       end
 
       context 'when work package has not been withdrawn' do
-        it 'returns true' do
+        xit 'returns true' do
           expect(@work_package.current?).to eq(true)
         end
       end
@@ -208,7 +208,7 @@ describe Parliament::Grom::Decorator::WorkPackage, vcr: true do
       end
     end
 
-    context 'end of time limit for approval' do
+    context 'by the House of Commons' do
       context 'has been actualised' do
         it 'returns true' do
           expect(@work_package.approved?).to eq(true)

@@ -55,7 +55,7 @@ module Parliament
         # @note 'Ksnj7JJ8' represents end of time limit for approval (made affirmative SIs)
 
         def expired?
-          (business_item.procedure_steps.map(&:graph_id) & ['g8B3R2Ou', 'Ksnj7JJ8']).any?
+          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['g8B3R2Ou', 'Ksnj7JJ8']).any?
         end
 
         # @return [Bool] Whether a decision has been made on an SI (approved or rejected).
@@ -70,7 +70,7 @@ module Parliament
         # @note '0XYsDfhL' represents approval by the House of Commons (if a Commons only SI)
         #
         def approved?
-          (business_item.procedure_steps.map(&:graph_id) & ['FYeLHMEw', '0XYsDfhL']).any?
+          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['FYeLHMEw', '0XYsDfhL']).any?
         end
 
         # Method checks to see whether procedure steps have been actualised by business items
@@ -81,7 +81,7 @@ module Parliament
         # @note 'Z7EekLUl' represents instrument cannot be made law (for draft SIs)
         #
         def rejected?
-          (business_item.procedure_steps.map(&:graph_id) & ['60eN08eS', 'pJMUACWK', 'Z7EekLUl']).any?
+          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['60eN08eS', 'pJMUACWK', 'Z7EekLUl']).any?
         end
       end
     end
