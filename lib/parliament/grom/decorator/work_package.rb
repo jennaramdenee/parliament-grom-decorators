@@ -38,6 +38,39 @@ module Parliament
         def oldest_business_item_date
           respond_to?(:oldestBusinessItemDate) ? DateTime.parse(oldestBusinessItemDate) : nil
         end
+
+        ## CURRENT STUFF ##
+
+        # @return [Bool] Whether a work package has been withdrawn.
+        def withdrawn?
+          # If business items have procedure step withdrawn
+          # business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Withdrawal of motion') }
+          # TODO: Implement
+        end
+
+        # @return [Bool] Whether a work package has expired (clock has ended).
+        def expired?
+          # If clock has ended
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approval clock ends') }
+          # TODO: Implement
+        end
+
+        # @return [Bool] Whether a decision has been made on an SI (approved or rejected).
+        def decision_made?
+          approved? || rejected?
+        end
+
+        # @return [Bool] Whether a work package has been approved.
+        def approved?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('Approved') }
+          # TODO: Implement
+        end
+
+        # @return [Bool] Whether a work package has been rejected.
+        def rejected?
+          business_items.find { |business_item| business_item.procedure_steps.map(&:name).include?('SI Dead') }
+          # TODO: Implement
+        end
       end
     end
   end
