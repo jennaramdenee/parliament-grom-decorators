@@ -23,6 +23,10 @@ module Parliament
         def distance_from_origin
           respond_to?(:distance) ? distance.to_i : 0
         end
+
+        def business_items
+          respond_to?(:procedureStepHasBusinessItem) ? procedureStepHasBusinessItem : nil
+        end
       end
     end
   end
