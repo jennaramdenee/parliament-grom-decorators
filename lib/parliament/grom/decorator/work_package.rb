@@ -38,51 +38,6 @@ module Parliament
         def oldest_business_item_date
           respond_to?(:oldestBusinessItemDate) ? DateTime.parse(oldestBusinessItemDate) : nil
         end
-
-        def current?
-          !(expired? || withdrawn? || decision_made?)
-        end
-
-        # @return [Bool] Whether a work package has been withdrawn.
-        def withdrawn?
-          # TODO: Implement
-        end
-
-        # Method checks to see whether procedure steps have been actualised by business items
-        #
-        # @return [Bool] Whether a work package has expired.
-        # @note 'g8B3R2Ou' represents end of 40 day time limit to move a negative resolution (negative SIs)
-        # @note 'Ksnj7JJ8' represents end of time limit for approval (made affirmative SIs)
-
-        def expired?
-          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['g8B3R2Ou', 'Ksnj7JJ8']).any?
-        end
-
-        # @return [Bool] Whether a decision has been made on an SI (approved or rejected).
-        def decision_made?
-          approved? || rejected?
-        end
-
-        # Method checks to see whether procedure steps have been actualised by business items
-        #
-        # @return [Bool] Whether a work package has been approved by either both houses, or by the House of Commons.
-        # @note 'FYeLHMEw' represents approval by both houses
-        # @note '0XYsDfhL' represents approval by the House of Commons (if a Commons only SI)
-        #
-        def approved?
-          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['FYeLHMEw', '0XYsDfhL']).any?
-        end
-
-        # Method checks to see whether procedure steps have been actualised by business items
-        #
-        # @return [Bool] Whether a work package has been rejected.
-        # @note '60eN08eS' represents instrument rejected and ceases to be law (for made affirmative SIs)
-        # @note 'pJMUACWK' represents instrument annulled (for made negative SIs)
-        # @note 'Z7EekLUl' represents instrument cannot be made law (for draft SIs)
-        #
-        def rejected?
-          (business_items.map(&:procedure_steps).flatten.map(&:graph_id) & ['60eN08eS', 'pJMUACWK', 'Z7EekLUl']).any?
-        end
       end
     end
   end
