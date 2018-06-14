@@ -7,20 +7,6 @@ describe Parliament::Grom::Decorator::FormalBody, vcr: true do
     decorators: Parliament::Grom::Decorator).group_by_id.get }
   let(:formal_body_node) { response.filter('https://id.parliament.uk/schema/FormalBody').first }
 
-  context '#name' do
-    context 'Grom::Node has a name' do
-      it 'will return correct name' do
-        expect(formal_body_node.name).to eq('Artificial Intelligence Committee')
-      end
-    end
-
-    context 'Grom::Node has no name' do
-      it 'will return an empty string' do
-        expect(formal_body_node.name).to eq('')
-      end
-    end
-  end
-
   context '#has_chair?' do
     context 'has a committee chair' do
       it 'will return true' do
@@ -71,21 +57,6 @@ describe Parliament::Grom::Decorator::FormalBody, vcr: true do
     end
   end
 
-  context '#start_date' do
-    context 'Grom::Node has a start date' do
-      it 'will return correct start date' do
-        expect(formal_body_node.start_date).to eq(DateTime.parse('2017-06-27T00:00:00+00:00'))
-        expect(formal_body_node.start_date.class).to eq(DateTime)
-      end
-    end
-
-    context 'Grom::Node has no start date' do
-      it 'will return nil' do
-        expect(formal_body_node.start_date).to eq(nil)
-      end
-    end
-  end
-
   context '#remit' do
     context 'Grom::Node has a description' do
       it 'will return correct remit' do
@@ -113,21 +84,6 @@ describe Parliament::Grom::Decorator::FormalBody, vcr: true do
       end
     end
    end
-
-  context '#end_date' do
-    context 'Grom::Node has an end date' do
-      it 'will return correct end date' do
-        expect(formal_body_node.end_date).to eq(DateTime.parse('2019-06-27T00:00:00+00:00'))
-        expect(formal_body_node.end_date.class).to eq(DateTime)
-      end
-    end
-
-    context 'Grom::Node has no end date' do
-      it 'will return nil' do
-        expect(formal_body_node.end_date).to eq(nil)
-      end
-    end
-  end
 
   context '#current?' do
     context 'is current' do

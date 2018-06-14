@@ -4,14 +4,6 @@ module Parliament
       # Decorator namespace for Grom::Node instances with type: https://id.parliament.uk/schema/FormalBody.
       module FormalBody
         include Helpers::DateHelper
-
-        # Checks if Grom::Node has a name.
-        #
-        # @return [String, String] a string depending on whether or not the Grom::Node has a name.
-        def name
-          @name ||= respond_to?(:formalBodyName) ? formalBodyName : ''
-        end
-
         # Checks if Grom::Node has a chair.
         #
         # @return [Boolean] a boolean depending on whether or not the Grom::Node is chair.
@@ -20,7 +12,7 @@ module Parliament
         end
 
         # Alias is_chair with fallback.
-        #
+
         # @return [Array, Array] an array of Position Grom::Nodes representing the chair or an empty array.
         def chairs
           respond_to?(:formalBodyHasFormalBodyChair) ? formalBodyHasFormalBodyChair : []
@@ -29,13 +21,6 @@ module Parliament
         # @return [Array, Array] array of Person Grom::Node(s) representing the current incumbent(s) of chair position(s).
         def chair_people
           chairs.first&.incumbencies&.first&.people || []
-        end
-
-        # Alias formalBodyStartDate with fallback.
-        #
-        # @return [DateTime, nil] the start date of the Grom::Node or nil.
-        def start_date
-          @start_date ||= respond_to?(:formalBodyStartDate) ? DateTime.parse(formalBodyStartDate) : nil
         end
 
         # Checks if Grom::Node has a remit.
@@ -52,18 +37,11 @@ module Parliament
           respond_to?(:formalBodyHasLeadHouse)
         end
 
-        # Alias formalBodyEndDate with fallback.
-        #
-        # @return [DateTime, nil] the end date of the Grom::Node or nil.
-        def end_date
-          @end_date ||= respond_to?(:formalBodyEndDate) ? DateTime.parse(formalBodyEndDate) : nil
-        end
-
         # Checks if Grom::Node has an end date.
         #
         # @return [Boolean] a boolean depending on whether or not the Grom::Node has an end date.
         def current?
-          end_date.nil?
+          !respond_to?(:formalBodyEndDate)
         end
 
         # Checks if Grom::Node has contact points.
@@ -85,6 +63,7 @@ module Parliament
         # @return [Boolean] whether or not the group is a select committee.
         def select_committee?
           type.include?('https://id.parliament.uk/schema/SelectCommittee')
+          # type.include?(Parliament::Utils::Helpers::RequestHelper.namespace_uri_schema_path('SelectCommittee'))
         end
 
         # Checks what type of committee a Grom::Node represents.
