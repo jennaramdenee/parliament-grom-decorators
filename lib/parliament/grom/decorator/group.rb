@@ -36,6 +36,13 @@ module Parliament
         def formal_body?
           type.include?('https://id.parliament.uk/schema/FormalBody')
         end
+
+        # Checks if Grom::Node has an end date.
+        #
+        # @return [Boolean] a boolean depending on whether or not the Grom::Node has an end date.
+        def current?
+          end_date.nil?
+        end
       end
     end
   end

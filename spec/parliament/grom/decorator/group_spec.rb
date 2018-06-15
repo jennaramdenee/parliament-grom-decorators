@@ -76,4 +76,18 @@ describe Parliament::Grom::Decorator::Group, vcr: true do
       end
     end
   end
+
+  describe '#current?' do
+    context 'is current' do
+      it 'will return true' do
+        expect(group_node.current?).to eq(true)
+      end
+    end
+
+    context 'is not current' do
+      it 'will return false' do
+        expect(group_node.current?).to eq(false)
+      end
+    end
+  end
 end
